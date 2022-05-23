@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+
+<html  dir="rtl" lang="he" xml:lang="he">
+<head>
+    <title>קורס: 153105.3.5782 - תכנות פונקציונלית ולוגית</title>
+    <link rel="shortcut icon" href="https://moodle.jct.ac.il/theme/image.php/boost/theme/1653300962/favicon" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="moodle, קורס: 153105.3.5782 - תכנות פונקציונלית ולוגית" />
+<link rel="stylesheet" type="text/css" href="https://moodle.jct.ac.il/theme/yui_combo.php?rollup/3.17.2/yui-moodlesimple-min.css" /><script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="https://moodle.jct.ac.il/theme/styles.php/boost/1653300962_1532327345/all-rtl" />
+<script type="text/javascript">
+//<![CDATA[
+var M = {}; M.yui = {};
+M.pageloadstarttime = new Date();
+M.cfg = {"wwwroot":"https:\/\/moodle.jct.ac.il","sesskey":"VOiqzQBxrc","themerev":"1653300962","slasharguments":1,"theme":"boost","iconsystemmodule":"core\/icon_system_fontawesome","jsrev":"1653300962","admin":"admin","svgicons":true,"usertimezone":"\u05d0\u05e1\u05d9\u05d4, \u05d9\u05e8\u05d5\u05e9\u05dc\u05d9\u05dd","contextid":905332};var yui1ConfigFn = function(me) {if(/-skin|reset|fonts|grids|base/.test(me.name)){me.type='css';me.path=me.path.replace(/\.js/,'.css');me.path=me.path.replace(/\/yui2-skin/,'/assets/skins/sam/yui2-skin')}};
+var yui2ConfigFn = function(me) {var parts=me.name.replace(/^moodle-/,'').split('-'),component=parts.shift(),module=parts[0],min='-min';if(/-(skin|core)$/.test(me.name)){parts.pop();me.type='css';min=''}
+if(module){var filename=parts.join('-');me.path=component+'/'+module+'/'+filename+min+'.'+me.type}else{me.path=component+'/'+component+'.'+me.type}};
+YUI_config = {"debug":false,"base":"https:\/\/moodle.jct.ac.il\/lib\/yuilib\/3.17.2\/","comboBase":"https:\/\/moodle.jct.ac.il\/theme\/yui_combo.php?","combine":true,"filter":null,"insertBefore":"firstthemesheet","groups":{"yui2":{"base":"https:\/\/moodle.jct.ac.il\/lib\/yuilib\/2in3\/2.9.0\/build\/","comboBase":"https:\/\/moodle.jct.ac.il\/theme\/yui_combo.php?","combine":true,"ext":false,"root":"2in3\/2.9.0\/build\/","patterns":{"yui2-":{"group":"yui2","configFn":yui1ConfigFn}}},"moodle":{"name":"moodle","base":"https:\/\/moodle.jct.ac.il\/theme\/yui_combo.php?m\/1653300962\/","combine":true,"comboBase":"https:\/\/moodle.jct.ac.il\/theme\/yui_combo.php?","ext":false,"root":"m\/1653300962\/","patterns":{"moodle-":{"group":"moodle","configFn":yui2ConfigFn}},"filter":null,"modules":{"moodle-core-popuphelp":{"requires":["moodle-core-tooltip"]},"moodle-core-formchangechecker":{"requires":["base","event-focus","moodle-core-event"]},"moodle-core-notification":{"requires":["moodle-core-notification-dialogue","moodle-core-notification-alert","moodle-core-notification-confirm","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]},"moodle-core-notification-dialogue":{"requires":["base","node","panel","escape","event-key","dd-plugin","moodle-core-widget-focusafterclose","moodle-core-lockscroll"]},"moodle-core-notification-alert":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-confirm":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-exception":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-ajaxexception":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-actionmenu":{"requires":["base","event","node-event-simulate"]},"moodle-core-dock":{"requires":["base","node","event-custom","event-mouseenter","event-resize","escape","moodle-core-dock-loader","moodle-core-event"]},"moodle-core-dock-loader":{"requires":["escape"]},"moodle-core-maintenancemodetimer":{"requires":["base","node"]},"moodle-core-event":{"requires":["event-custom"]},"moodle-core-languninstallconfirm":{"requires":["base","node","moodle-core-notification-confirm","moodle-core-notification-alert"]},"moodle-core-blocks":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification"]},"moodle-core-lockscroll":{"requires":["plugin","base-build"]},"moodle-core-dragdrop":{"requires":["base","node","io","dom","dd","event-key","event-focus","moodle-core-notification"]},"moodle-core-chooserdialogue":{"requires":["base","panel","moodle-core-notification"]},"moodle-core-handlebars":{"condition":{"trigger":"handlebars","when":"after"}},"moodle-core-tooltip":{"requires":["base","node","io-base","moodle-core-notification-dialogue","json-parse","widget-position","widget-position-align","event-outside","cache-base"]},"moodle-core-checknet":{"requires":["base-base","moodle-core-notification-alert","io-base"]},"moodle-core_availability-form":{"requires":["base","node","event","event-delegate","panel","moodle-core-notification-dialogue","json"]},"moodle-backup-backupselectall":{"requires":["node","event","node-event-simulate","anim"]},"moodle-backup-confirmcancel":{"requires":["node","node-event-simulate","moodle-core-notification-confirm"]},"moodle-course-modchooser":{"requires":["moodle-core-chooserdialogue","moodle-course-coursebase"]},"moodle-course-formatchooser":{"requires":["base","node","node-event-simulate"]},"moodle-course-categoryexpander":{"requires":["node","event-key"]},"moodle-course-dragdrop":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification","moodle-course-coursebase","moodle-course-util"]},"moodle-course-management":{"requires":["base","node","io-base","moodle-core-notification-exception","json-parse","dd-constrain","dd-proxy","dd-drop","dd-delegate","node-event-delegate"]},"moodle-course-util":{"requires":["node"],"use":["moodle-course-util-base"],"submodules":{"moodle-course-util-base":{},"moodle-course-util-section":{"requires":["node","moodle-course-util-base"]},"moodle-course-util-cm":{"requires":["node","moodle-course-util-base"]}}},"moodle-form-passwordunmask":{"requires":[]},"moodle-form-showadvanced":{"requires":["node","base","selector-css3"]},"moodle-form-shortforms":{"requires":["node","base","selector-css3","moodle-core-event"]},"moodle-form-dateselector":{"requires":["base","node","overlay","calendar"]},"moodle-question-searchform":{"requires":["base","node"]},"moodle-question-qbankmanager":{"requires":["node","selector-css3"]},"moodle-question-preview":{"requires":["base","dom","event-delegate","event-key","core_question_engine"]},"moodle-question-chooser":{"requires":["moodle-core-chooserdialogue"]},"moodle-availability_completion-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_date-form":{"requires":["base","node","event","io","moodle-core_availability-form"]},"moodle-availability_grade-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_group-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_grouping-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_profile-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-qtype_ddimageortext-dd":{"requires":["node","dd","dd-drop","dd-constrain"]},"moodle-qtype_ddimageortext-form":{"requires":["moodle-qtype_ddimageortext-dd","form_filepicker"]},"moodle-qtype_ddmarker-dd":{"requires":["node","event-resize","dd","dd-drop","dd-constrain","graphics"]},"moodle-qtype_ddmarker-form":{"requires":["moodle-qtype_ddmarker-dd","form_filepicker","graphics","escape"]},"moodle-qtype_ddwtos-dd":{"requires":["node","dd","dd-drop","dd-constrain"]},"moodle-mod_assign-history":{"requires":["node","transition"]},"moodle-mod_attendance-groupfilter":{"requires":["base","node"]},"moodle-mod_checklist-linkselect":{"requires":["node","event-valuechange"]},"moodle-mod_forum-subscriptiontoggle":{"requires":["base-base","io-base"]},"moodle-mod_oublog-tagselector":{"requires":["base","node","autocomplete","autocomplete-filters","autocomplete-highlighters"]},"moodle-mod_oublog-savecheck":{"requires":["base","node","io","panel","moodle-core-notification-alert"]},"moodle-mod_quiz-repaginate":{"requires":["base","event","node","io","moodle-core-notification-dialogue"]},"moodle-mod_quiz-quizbase":{"requires":["base","node"]},"moodle-mod_quiz-autosave":{"requires":["base","node","event","event-valuechange","node-event-delegate","io-form"]},"moodle-mod_quiz-toolboxes":{"requires":["base","node","event","event-key","io","moodle-mod_quiz-quizbase","moodle-mod_quiz-util-slot","moodle-core-notification-ajaxexception"]},"moodle-mod_quiz-questionchooser":{"requires":["moodle-core-chooserdialogue","moodle-mod_quiz-util","querystring-parse"]},"moodle-mod_quiz-dragdrop":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification","moodle-mod_quiz-quizbase","moodle-mod_quiz-util-base","moodle-mod_quiz-util-page","moodle-mod_quiz-util-slot","moodle-course-util"]},"moodle-mod_quiz-modform":{"requires":["base","node","event"]},"moodle-mod_quiz-util":{"requires":["node","moodle-core-actionmenu"],"use":["moodle-mod_quiz-util-base"],"submodules":{"moodle-mod_quiz-util-base":{},"moodle-mod_quiz-util-slot":{"requires":["node","moodle-mod_quiz-util-base"]},"moodle-mod_quiz-util-page":{"requires":["node","moodle-mod_quiz-util-base"]}}},"moodle-mod_scheduler-delselected":{"requires":["base","node","event"]},"moodle-mod_scheduler-saveseen":{"requires":["base","node","event"]},"moodle-mod_scheduler-studentlist":{"requires":["base","node","event","io"]},"moodle-message_airnotifier-toolboxes":{"requires":["base","node","io"]},"moodle-filter_glossary-autolinker":{"requires":["base","node","io-base","json-parse","event-delegate","overlay","moodle-core-event","moodle-core-notification-alert","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]},"moodle-filter_mathjaxloader-loader":{"requires":["moodle-core-event"]},"moodle-editor_atto-rangy":{"requires":[]},"moodle-editor_atto-editor":{"requires":["node","transition","io","overlay","escape","event","event-simulate","event-custom","node-event-html5","node-event-simulate","yui-throttle","moodle-core-notification-dialogue","moodle-core-notification-confirm","moodle-editor_atto-rangy","handlebars","timers","querystring-stringify"]},"moodle-editor_atto-plugin":{"requires":["node","base","escape","event","event-outside","handlebars","event-custom","timers","moodle-editor_atto-menu"]},"moodle-editor_atto-menu":{"requires":["moodle-core-notification-dialogue","node","event","event-custom"]},"moodle-format_grid-gridkeys":{"requires":["event-nav-keys"]},"moodle-report_eventlist-eventfilter":{"requires":["base","event","node","node-event-delegate","datatable","autocomplete","autocomplete-filters"]},"moodle-report_loglive-fetchlogs":{"requires":["base","event","node","io","node-event-delegate"]},"moodle-gradereport_grader-gradereporttable":{"requires":["base","node","event","handlebars","overlay","event-hover"]},"moodle-gradereport_history-userselector":{"requires":["escape","event-delegate","event-key","handlebars","io-base","json-parse","moodle-core-notification-dialogue"]},"moodle-tool_capability-search":{"requires":["base","node"]},"moodle-tool_lp-dragdrop-reorder":{"requires":["moodle-core-dragdrop"]},"moodle-tool_monitor-dropdown":{"requires":["base","event","node"]},"moodle-assignfeedback_editpdf-editor":{"requires":["base","event","node","io","graphics","json","event-move","event-resize","transition","querystring-stringify-simple","moodle-core-notification-dialog","moodle-core-notification-alert","moodle-core-notification-warning","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]},"moodle-atto_accessibilitychecker-button":{"requires":["color-base","moodle-editor_atto-plugin"]},"moodle-atto_accessibilityhelper-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_align-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_bold-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_charmap-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_clear-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_collapse-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_emoticon-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_equation-button":{"requires":["moodle-editor_atto-plugin","moodle-core-event","io","event-valuechange","tabview","array-extras"]},"moodle-atto_html-button":{"requires":["moodle-editor_atto-plugin","event-valuechange"]},"moodle-atto_htmlplus-beautify":{},"moodle-atto_htmlplus-button":{"requires":["moodle-editor_atto-plugin","moodle-atto_htmlplus-beautify","moodle-atto_htmlplus-codemirror","event-valuechange"]},"moodle-atto_htmlplus-codemirror":{"requires":["moodle-atto_htmlplus-codemirror-skin"]},"moodle-atto_image-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_indent-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_italic-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_link-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_managefiles-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_managefiles-usedfiles":{"requires":["node","escape"]},"moodle-atto_media-button":{"requires":["moodle-editor_atto-plugin","moodle-form-shortforms"]},"moodle-atto_noautolink-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_orderedlist-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_recordrtc-recording":{"requires":["moodle-atto_recordrtc-button"]},"moodle-atto_recordrtc-button":{"requires":["moodle-editor_atto-plugin","moodle-atto_recordrtc-recording"]},"moodle-atto_rtl-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_strike-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_styles-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_subscript-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_superscript-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_table-button":{"requires":["moodle-editor_atto-plugin","moodle-editor_atto-menu","event","event-valuechange"]},"moodle-atto_title-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_underline-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_undo-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_unorderedlist-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_wiris-button":{"requires":["moodle-editor_atto-plugin","get"]},"moodle-atto_wordimport-button":{"requires":["moodle-editor_atto-plugin"]}}},"gallery":{"name":"gallery","base":"https:\/\/moodle.jct.ac.il\/lib\/yuilib\/gallery\/","combine":true,"comboBase":"https:\/\/moodle.jct.ac.il\/theme\/yui_combo.php?","ext":false,"root":"gallery\/1653300962\/","patterns":{"gallery-":{"group":"gallery"}}}},"modules":{"core_filepicker":{"name":"core_filepicker","fullpath":"https:\/\/moodle.jct.ac.il\/lib\/javascript.php\/1653300962\/repository\/filepicker.js","requires":["base","node","node-event-simulate","json","async-queue","io-base","io-upload-iframe","io-form","yui2-treeview","panel","cookie","datatable","datatable-sort","resize-plugin","dd-plugin","escape","moodle-core_filepicker","moodle-core-notification-dialogue"]},"core_comment":{"name":"core_comment","fullpath":"https:\/\/moodle.jct.ac.il\/lib\/javascript.php\/1653300962\/comment\/comment.js","requires":["base","io-base","node","json","yui2-animation","overlay","escape"]},"mathjax":{"name":"mathjax","fullpath":"https:\/\/cdn.jsdelivr.net\/npm\/mathjax@2.7.8\/MathJax.js?delayStartupUntil=configured"}}};
+M.yui.loader = {modules: {}};
+
+//]]>
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body  id="page-course-view-grid" class="format-grid  path-course path-course-view dir-rtl lang-he yui-skin-sam yui3-skin-sam moodle-jct-ac-il pagelayout-course course-55232 context-905332 category-106 drawer-open-left">
+
+<div id="page-wrapper">
+
+    <div>
+    <a class="sr-only sr-only-focusable" href="#maincontent">דילוג לתוכן הראשי</a>
+</div><script type="text/javascript" src="https://moodle.jct.ac.il/theme/yui_combo.php?rollup/3.17.2/yui-moodlesimple-min.js"></script><script type="text/javascript" src="https://moodle.jct.ac.il/lib/javascript.php/1653300962/lib/javascript-static.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+
+
+    <nav class="fixed-top navbar navbar-light bg-white navbar-expand moodle-has-zindex" aria-label="Site navigation">
+    
+            <div data-region="drawer-toggle" class="d-inline-block mr-3">
+                <button aria-expanded="true" aria-controls="nav-drawer" type="button" class="btn nav-link float-sm-left mr-1 btn-light bg-gray" data-action="toggle-drawer" data-side="left" data-preference="drawer-open-nav"><i class="icon fa fa-bars fa-fw " aria-hidden="true"  ></i><span class="sr-only">חלון סקירה צדדי</span></button>
+            </div>
+    
+            <a href="https://moodle.jct.ac.il" class="navbar-brand has-logo
+                    ">
+                    <span class="logo d-none d-sm-inline">
+                        <img src="https://moodle.jct.ac.il/pluginfile.php/1/core_admin/logocompact/0x70/1653300962/jct_logo.png" alt="לב">
+                    </span>
+                <span class="site-name d-none d-md-inline">לב</span>
+            </a>
+    
+            <ul class="navbar-nav d-none d-md-flex">
+                <!-- custom_menu -->
+                <li class="dropdown nav-item">
+    <a class="dropdown-toggle nav-link" id="drop-down-628ba2a3dfb64628ba2a3de6fe4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" aria-controls="drop-down-menu-628ba2a3dfb64628ba2a3de6fe4">
+        המדריך
+    </a>
+    <div class="dropdown-menu" role="menu" id="drop-down-menu-628ba2a3dfb64628ba2a3de6fe4" aria-labelledby="drop-down-628ba2a3dfb64628ba2a3de6fe4">
+                <a class="dropdown-item" role="menuitem" href="https://moodle.jct.ac.il/course/view.php?id=47385&amp;section=0" title="מדריך למרצים">מדריך למרצים</a>
+                <div class="dropdown-divider" role="presentation"></div>
+                <a class="dropdown-item" role="menuitem" href="https://moodle.jct.ac.il/mod/hvp/view.php?id=390278" title="מדריך לסטודנטים">מדריך לסטודנטים</a>
+    </div>
+</li><li class="dropdown nav-item">
+    <a class="dropdown-toggle nav-link" id="drop-down-628ba2a3dfc43628ba2a3de6fe5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" aria-controls="drop-down-menu-628ba2a3dfc43628ba2a3de6fe5">
+        אתרי המרכז האקדמי
+    </a>
+    <div class="dropdown-menu" role="menu" id="drop-down-menu-628ba2a3dfc43628ba2a3de6fe5" aria-labelledby="drop-down-628ba2a3dfc43628ba2a3de6fe5">
+                <a class="dropdown-item" role="menuitem" href="http://it-support.jct.ac.il" target="_blank" title=" אתר התמיכה"> אתר התמיכה</a>
+                <a class="dropdown-item" role="menuitem" href="https://levnet.jct.ac.il" target="_blank" title=" לב נט"> לב נט</a>
+                <a class="dropdown-item" role="menuitem" href="https://www.jct.ac.il/סטודנטים/ספריה/" target="_blank" title=" אתר הספריה"> אתר הספריה</a>
+                <a class="dropdown-item" role="menuitem" href="https://midrash.jct.ac.il/" target="_blank" title=" אתר בית המדרש"> אתר בית המדרש</a>
+    </div>
+</li><li class="dropdown nav-item">
+    <a class="dropdown-toggle nav-link" id="drop-down-628ba2a3dfd09628ba2a3de6fe6" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" aria-controls="drop-down-menu-628ba2a3dfd09628ba2a3de6fe6">
+        קישורים שימושיים
+    </a>
+    <div class="dropdown-menu" role="menu" id="drop-down-menu-628ba2a3dfd09628ba2a3de6fe6" aria-labelledby="drop-down-628ba2a3dfd09628ba2a3de6fe6">
+                <a class="dropdown-item" role="menuitem" href="https://student-work.jct.ac.il/login" target="_blank" title="מערכת דיווח לסטודנטים">מערכת דיווח לסטודנטים</a>
+                <a class="dropdown-item" role="menuitem" href="https://lev.jct.ac.il/" target="_blank" title=" התחברות מרחוק"> התחברות מרחוק</a>
+                <a class="dropdown-item" role="menuitem" href="https://it-support.jct.ac.il/remote-connect-full-guide/" target="_blank" title=" מדריך להתחברות מרחוק"> מדריך להתחברות מרחוק</a>
+                <a class="dropdown-item" role="menuitem" href="https://it-support.jct.ac.il/category/software-downloads/" target="_blank" title=" מדריך להורדת תוכנות לימוד"> מדריך להורדת תוכנות לימוד</a>
+    </div>
+</li><li class="dropdown nav-item">
+    <a class="dropdown-toggle nav-link" id="drop-down-628ba2a3dfdbc628ba2a3de6fe7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" aria-controls="drop-down-menu-628ba2a3dfdbc628ba2a3de6fe7">
+        דיווח תקלות
+    </a>
+    <div class="dropdown-menu" role="menu" id="drop-down-menu-628ba2a3dfdbc628ba2a3de6fe7" aria-labelledby="drop-down-628ba2a3dfdbc628ba2a3de6fe7">
+                <a class="dropdown-item" role="menuitem" href="https://levnet.jct.ac.il/Login/ReportProblem.aspx" target="_blank" title=" תקלות מחשוב"> תקלות מחשוב</a>
+                <a class="dropdown-item" role="menuitem" href="http://moked.jct.ac.il/details/wosimple.aspx" target="_blank" title=" תקלות אחזקה"> תקלות אחזקה</a>
+                <a class="dropdown-item" role="menuitem" href="https://forms.gle/g8x8T58PXSf1obWcA" target="_blank" title=" Streamitup"> Streamitup</a>
+    </div>
+</li><li class="dropdown nav-item">
+    <a class="dropdown-toggle nav-link" id="drop-down-628ba2a3dfe63628ba2a3de6fe8" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" aria-controls="drop-down-menu-628ba2a3dfe63628ba2a3de6fe8">
+        עברית ‎(he)‎
+    </a>
+    <div class="dropdown-menu" role="menu" id="drop-down-menu-628ba2a3dfe63628ba2a3de6fe8" aria-labelledby="drop-down-628ba2a3dfe63628ba2a3de6fe8">
+                <a class="dropdown-item" role="menuitem" href="https://moodle.jct.ac.il/course/view.php?id=55232&amp;lang=he" title="עברית ‎(he)‎">עברית ‎(he)‎</a>
+                <a class="dropdown-item" role="menuitem" href="https://moodle.jct.ac.il/course/view.php?id=55232&amp;lang=en" title="English ‎(en)‎">English ‎(en)‎</a>
+    </div>
+</li>
+                <!-- page_heading_menu -->
+                
+            </ul>
+            <ul class="nav navbar-nav ml-auto">
+                <div class="d-none d-lg-block">
+                <div class="search-input-wrapper nav-link" id="628ba2a3dff1b"><div role="button" tabindex="0"><i class="icon fa fa-search fa-fw "  title="חיפוש" aria-label="חיפוש"></i></div><form class="search-input-form" action="https://moodle.jct.ac.il/search/index.php"><label for="id_q_628ba2a3dff1b" class="accesshide">הזנת שאילתת החיפוש</label><input type="text" name="q" placeholder="חיפוש" size="13" tabindex="-1" id="id_q_628ba2a3dff1b" class="form-control"></input><input type="hidden" name="context" value="905332" /></form></div>
+            </div>
+                <!-- navbar_plugin_output -->
+                <li class="nav-item">
+                <div class="popover-region collapsed popover-region-messages"
+    id="nav-message-popover-container" data-userid="28738"
+    data-region="popover-region">
+    <div class="popover-region-toggle nav-link"
+        data-region="popover-region-toggle"
+        role="button"
+        aria-controls="popover-region-container-628ba2a3e06d1628ba2a3de6fe9"
+        aria-haspopup="true"
+        aria-label="Show message window with no new messages"
+        tabindex="0">
+                <i class="icon fa fa-comment fa-fw "  title="Toggle messages menu" aria-label="Toggle messages menu"></i>
+        <div class="count-container hidden" data-region="count-container">0</div>
+
+    </div>
+    <div 
+        id="popover-region-container-628ba2a3e06d1628ba2a3de6fe9"
+        class="popover-region-container"
+        data-region="popover-region-container"
+        aria-expanded="false"
+        aria-hidden="true"
+        aria-label="חלון הודעות"
+        role="region">
+        <div class="popover-region-header-container">
+            <h3 class="popover-region-header-text" data-region="popover-region-header-text">מסרים</h3>
+            <div class="popover-region-header-actions" data-region="popover-region-header-actions">        <div class="newmessage-link">
+            <a href="https://moodle.jct.ac.il/message/index.php?contactsfirst=1">הודעה חדשה
+            </a>
+        </div>
+        <a class="mark-all-read-button"
+           href="#"
+           role="button"
+           title="סימון הכל כ"נקרא""
+           data-action="mark-all-read">
+            <span class="normal-icon"><i class="icon fa fa-check fa-fw "  title="סימון הכל כ&quot;נקרא&quot;" aria-label="סימון הכל כ&quot;נקרא&quot;"></i></span>
+            <span class="loading-icon"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="טעינה" aria-label="טעינה"></i></span>
+        </a>
+        <a href="https://moodle.jct.ac.il/message/edit.php?id=28738"
+           title="העדפות מסרים">
+            <i class="icon fa fa-cog fa-fw "  title="העדפות מסרים" aria-label="העדפות מסרים"></i>
+        </a>
+</div>
+        </div>
+        <div class="popover-region-content-container" data-region="popover-region-content-container">
+            <div class="popover-region-content" data-region="popover-region-content">
+                        <div class="messages" data-region="messages" role="log" aria-busy="false" aria-atomic="false" aria-relevant="additions"></div>
+        <div class="empty-message" data-region="empty-message" tabindex="0">אין מסרים ממתינים</div>
+
+            </div>
+            <span class="loading-icon"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="טעינה" aria-label="טעינה"></i></span>
+        </div>
+                <a class="see-all-link"
+                    href="https://moodle.jct.ac.il/message/index.php">
+                    <div class="popover-region-footer-container">
+                        <div class="popover-region-seeall-text">תצוגת כל ההודעות</div>
+                    </div>
+                </a>
+    </div>
+</div><div class="popover-region collapsed popover-region-notifications"
+    id="nav-notification-popover-container" data-userid="28738"
+    data-region="popover-region">
+    <div class="popover-region-toggle nav-link"
+        data-region="popover-region-toggle"
+        role="button"
+        aria-controls="popover-region-container-628ba2a3e14f1628ba2a3de6fe10"
+        aria-haspopup="true"
+        aria-label="Show notification window with no new notifications"
+        tabindex="0">
+                <i class="icon fa fa-bell fa-fw "  title="הצגת/הסתרת תפריט הודעות" aria-label="הצגת/הסתרת תפריט הודעות"></i>
+        <div class="count-container hidden" data-region="count-container">0</div>
+
+    </div>
+    <div 
+        id="popover-region-container-628ba2a3e14f1628ba2a3de6fe10"
+        class="popover-region-container"
+        data-region="popover-region-container"
+        aria-expanded="false"
+        aria-hidden="true"
+        aria-label="חלון הודעות"
+        role="region">
+        <div class="popover-region-header-container">
+            <h3 class="popover-region-header-text" data-region="popover-region-header-text">הודעות</h3>
+            <div class="popover-region-header-actions" data-region="popover-region-header-actions">        <a class="mark-all-read-button"
+           href="#"
+           title="סימון הכל כ"נקרא""
+           data-action="mark-all-read"
+           role="button">
+            <span class="normal-icon"><i class="icon fa fa-check fa-fw "  title="סימון הכל כ&quot;נקרא&quot;" aria-label="סימון הכל כ&quot;נקרא&quot;"></i></span>
+            <span class="loading-icon"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="טעינה" aria-label="טעינה"></i></span>
+        </a>
+        <a href="https://moodle.jct.ac.il/message/notificationpreferences.php?userid=28738"
+           title="העדפות הודעות">
+            <i class="icon fa fa-cog fa-fw "  title="העדפות הודעות" aria-label="העדפות הודעות"></i>
+        </a>
+</div>
+        </div>
+        <div class="popover-region-content-container" data-region="popover-region-content-container">
+            <div class="popover-region-content" data-region="popover-region-content">
+                        <div class="all-notifications"
+            data-region="all-notifications"
+            role="log"
+            aria-busy="false"
+            aria-atomic="false"
+            aria-relevant="additions"></div>
+        <div class="empty-message" tabindex="0" data-region="empty-message">אין לך הודעות</div>
+
+            </div>
+            <span class="loading-icon"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="טעינה" aria-label="טעינה"></i></span>
+        </div>
+                <a class="see-all-link"
+                    href="https://moodle.jct.ac.il/message/output/popup/notifications.php">
+                    <div class="popover-region-footer-container">
+                        <div class="popover-region-seeall-text">תצוגת כל ההודעות</div>
+                    </div>
+                </a>
+    </div>
+</div>
+                </li>
+                <!-- user_menu -->
+                <li class="nav-item d-flex align-items-center">
+                    <div class="usermenu"><div class="action-menu moodle-actionmenu nowrap-items d-inline" id="action-menu-1" data-enhance="moodle-core-actionmenu">
+
+        <div class="menubar d-flex " id="action-menu-1-menubar" role="menubar">
+
+            
+
+
+                <div class="action-menu-trigger">
+                    <div class="dropdown">
+                        <a href="#" tabindex="0" class=" dropdown-toggle icon-no-margin" id="dropdown-1" aria-label="תפריט משתמש" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" aria-controls="action-menu-1-menu">
+                            
+                            <span class="userbutton"><span class="usertext mr-1">אריה שבסון</span><span class="avatars"><span class="avatar current"><img src="https://moodle.jct.ac.il/theme/image.php/boost/core/1653300962/u/f2" class="userpicture defaultuserpic" width="35" height="35" role="presentation" aria-hidden="true" /></span></span></span>
+                                
+                            <b class="caret"></b>
+                        </a>
+                            <div class="dropdown-menu dropdown-menu-right menu  align-tr-br" id="action-menu-1-menu" data-rel="menu-content" aria-labelledby="action-menu-toggle-1" role="menu" data-align="tr-br" id="dropdown-menu-1">
+                                        <a href="https://moodle.jct.ac.il/my/" class="dropdown-item menu-action" role="menuitem" data-title="mymoodle,admin" aria-labelledby="actionmenuaction-1">
+                                                <i class="icon fa fa-tachometer fa-fw " aria-hidden="true"  ></i>
+                                            <span class="menu-action-text" id="actionmenuaction-1">
+                                                עדכונים בקורסים שלי
+                                            </span>
+                                        </a>
+                                        <div class="dropdown-divider" role="presentation"><span class="filler">&nbsp;</span></div>
+                                        <a href="https://moodle.jct.ac.il/user/profile.php?id=28738" class="dropdown-item menu-action" role="menuitem" data-title="profile,moodle" aria-labelledby="actionmenuaction-2">
+                                                <i class="icon fa fa-user fa-fw " aria-hidden="true"  ></i>
+                                            <span class="menu-action-text" id="actionmenuaction-2">
+                                                פרופיל
+                                            </span>
+                                        </a>
+                                        <a href="https://moodle.jct.ac.il/grade/report/overview/index.php" class="dropdown-item menu-action" role="menuitem" data-title="grades,grades" aria-labelledby="actionmenuaction-3">
+                                                <i class="icon fa fa-table fa-fw " aria-hidden="true"  ></i>
+                                            <span class="menu-action-text" id="actionmenuaction-3">
+                                                ציונים
+                                            </span>
+                                        </a>
+                                        <a href="https://moodle.jct.ac.il/message/index.php" class="dropdown-item menu-action" role="menuitem" data-title="messages,message" aria-labelledby="actionmenuaction-4">
+                                                <i class="icon fa fa-comment fa-fw " aria-hidden="true"  ></i>
+                                            <span class="menu-action-text" id="actionmenuaction-4">
+                                                מסרים
+                                            </span>
+                                        </a>
+                                        <a href="https://moodle.jct.ac.il/user/preferences.php" class="dropdown-item menu-action" role="menuitem" data-title="preferences,moodle" aria-labelledby="actionmenuaction-5">
+                                                <i class="icon fa fa-wrench fa-fw " aria-hidden="true"  ></i>
+                                            <span class="menu-action-text" id="actionmenuaction-5">
+                                                העדפות
+                                            </span>
+                                        </a>
+                                        <div class="dropdown-divider" role="presentation"><span class="filler">&nbsp;</span></div>
+                                        <a href="https://moodle.jct.ac.il/login/logout.php?sesskey=VOiqzQBxrc" class="dropdown-item menu-action" role="menuitem" data-title="logout,moodle" aria-labelledby="actionmenuaction-6">
+                                                <i class="icon fa fa-sign-out fa-fw " aria-hidden="true"  ></i>
+                                            <span class="menu-action-text" id="actionmenuaction-6">
+                                                התנתקות
+                                            </span>
+                                        </a>
+                            </div>
+                    </div>
+                </div>
+
+        </div>
+
+</div></div>
+                </li>
+            </ul>
+            <!-- search_box -->
+    </nav>
+    
+
+    <div id="page" class="container-fluid">
+        <header id="page-header" class="row">
+    <div class="col-12 pt-3 pb-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex">
+                    <div class="mr-auto">
+                    <div class="page-context-header"><div class="page-header-headings"><h1>153105.3.5782 - תכנות פונקציונלית ולוגית</h1></div></div>
+                    </div>
+
+                </div>
+                <div class="d-flex flex-wrap">
+                    <div id="page-navbar">
+                        <nav role="navigation" aria-label="סרגל קישורי ניווט">
+    <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="https://moodle.jct.ac.il/"  >ראשי</a>
+                </li>
+                <li class="breadcrumb-item">הקורסים שלי</li>
+                <li class="breadcrumb-item">
+                    <a href="https://moodle.jct.ac.il/course/view.php?id=55232" aria-current="page" title="153105.3.5782 - תכנות פונקציונלית ולוגית">153105.5782 - תכנות פונקציונלית ולוגית - ב - אב</a>
+                </li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="ml-auto d-flex">
+                        
+                    </div>
+                    <div id="course-header">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div id="page-content" class="row">
+            <div id="region-main-box" class="col-12">
+                <section id="region-main" >
+                    <div class="card">
+                        <div class="card-body">
+                            <span class="notifications" id="user-notifications"></span>
+                            <div role="main"><span id="maincontent"></span><div class="course-content"><style type="text/css" media="screen">/* <![CDATA[ */#gridiconcontainer  ul.gridicons {justify-content: center;}.course-content ul.gridicons li .icon_content {text-align: center;width: 216px;}.course-content ul.gridicons li .image_holder {width: 210px;height: 140px;border-color: #dddddd;background-color: #f1f2f2;border-width: 3px;border-radius: 3px;}.course-content ul.gridicons li:hover .image_holder {box-shadow: 0 0 0 3px rgba(221,221,221, 0.3);}.course-content ul.gridicons li.currenticon .image_holder {box-shadow: 0 0 2px 4px #8E66FF;}.course-content ul.gridicons li.currentselected {background-color: #ffc540;}.course-content ul.gridicons li.currentselected .icon_content {color: #3b53ad;}.course-content ul.gridicons li .gridicon_link .tooltip-inner {background-color: #ffc540;color: #3b53ad;}.course-content ul.gridicons li .gridicon_link .tooltip.top .tooltip-arrow {border-top-color: #ffc540;}.course-content ul.gridicons li .gridicon_link .image_holder .tooltip {opacity: 1;}.course-content ul.gridicons img.new_activity {margin-top: 101px;margin-left: 118px;}/* ]]> */</style><div id="gridmiddle-column"><span></span><ul class="gtopics-0"><li id="section-0" class="section main" role="region" aria-label="יחידת מבוא"><div class="content"><h3 class="sectionname">יחידת מבוא</h3><div class="summary"></div><ul class="section img-text"><li class="activity forum modtype_forum " id="module-572120"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/forum/view.php?id=572120"><img src="https://moodle.jct.ac.il/theme/image.php/boost/forum/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">לוח הודעות<span class="accesshide " > פורום</span></span></a></div></div></div></div></li><li class="activity resource modtype_resource " id="module-588045"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/resource/view.php?id=588045"><img src="https://moodle.jct.ac.il/theme/image.php/boost/core/1653300962/f/pdf-24" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">סילבוס <span class="accesshide " > קובץ</span></span></a></div></div></div></div></li><li class="activity url modtype_url " id="module-588046"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/url/view.php?id=588046"><img src="https://moodle.jct.ac.il/theme/image.php/boost/url/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">התקנת פייתון<span class="accesshide " > קישור לאתר אינטרנט</span></span></a></div></div></div></div></li><li class="activity url modtype_url " id="module-588047"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/url/view.php?id=588047"><img src="https://moodle.jct.ac.il/theme/image.php/boost/url/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">התקנת אנקונדה<span class="accesshide " > קישור לאתר אינטרנט</span></span></a></div></div></div></div></li><li class="activity url modtype_url " id="module-588050"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/url/view.php?id=588050"><img src="https://moodle.jct.ac.il/theme/image.php/boost/url/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">התקנת פרולוג<span class="accesshide " > קישור לאתר אינטרנט</span></span></a></div></div></div></div></li><li class="activity attendance modtype_attendance " id="module-590221"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/attendance/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">נוכחות תלמידים </span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.31.5782.01</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity attendance modtype_attendance " id="module-590150"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/attendance/view.php?id=590150"><img src="https://moodle.jct.ac.il/theme/image.php/boost/attendance/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">נוכחות תלמידים - קבוצות הרצאה 01 ו-153105-01-5782-02 </span></a></div></div></div></div></li><li class="activity streamitup modtype_streamitup " id="module-590439"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/streamitup/view.php?id=590439"><img src="https://moodle.jct.ac.il/theme/image.php/boost/streamitup/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">שיעור - משה גולדשטיין - לב דוברי עברית יום ג' שעה 14:30<span class="accesshide " > Streamitup</span></span></a></div></div></div></div></li><li class="activity streamitup modtype_streamitup " id="module-590440"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/streamitup/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">שיעור - משה גולדשטיין - תרגיל יום ג' בשעה 18:45<span class="accesshide " > Streamitup</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.22</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity streamitup modtype_streamitup " id="module-590441"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/streamitup/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">שיעור - משה גולדשטיין - תרגיל יום ג' בשעה 17:00<span class="accesshide " > Streamitup</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.28</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity streamitup modtype_streamitup " id="module-591100"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/streamitup/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תירגול תכנות פונקציונלי - לב - משה גולדשטיין יום ה' שעה 12:30<span class="accesshide " > Streamitup</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.25</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity resource modtype_resource " id="module-591541"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/resource/view.php?id=591541"><img src="https://moodle.jct.ac.il/theme/image.php/boost/core/1653300962/f/pdf-24" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">Appendices for the Exam<span class="accesshide " > קובץ</span></span></a></div></div></div></div></li><li class="activity url modtype_url " id="module-591542"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/url/view.php?id=591542"><img src="https://moodle.jct.ac.il/theme/image.php/boost/url/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">Pyhton Installation<span class="accesshide " > קישור לאתר אינטרנט</span></span></a></div></div></div></div></li><li class="activity url modtype_url " id="module-591543"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/url/view.php?id=591543"><img src="https://moodle.jct.ac.il/theme/image.php/boost/url/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">Anaconda Installation<span class="accesshide " > קישור לאתר אינטרנט</span></span></a></div></div></div></div></li><li class="activity url modtype_url " id="module-591544"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/url/view.php?id=591544"><img src="https://moodle.jct.ac.il/theme/image.php/boost/url/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">compiler online - python<span class="accesshide " > קישור לאתר אינטרנט</span></span></a></div></div></div></div></li><li class="activity url modtype_url " id="module-591545"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/url/view.php?id=591545"><img src="https://moodle.jct.ac.il/theme/image.php/boost/url/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">Prolog Installation<span class="accesshide " > קישור לאתר אינטרנט</span></span></a></div></div></div></div></li><li class="activity url modtype_url " id="module-588049"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/url/view.php?id=588049"><img src="https://moodle.jct.ac.il/theme/image.php/boost/url/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">prolog online<span class="accesshide " > קישור לאתר אינטרנט</span></span></a></div></div></div></div></li></ul></div></li></ul><div id="gridiconcontainer" role="navigation" aria-label="תמונות הטבלה"><ul class="gridicons gridcursor"><li role="region" aria-labelledby="gridsectionname-1"><a href="#section-1" id="gridsection-1" class="gridicon_link" role="link"><div id="gridsectionname-1" class="icon_content">בחנים</div><div class="image_holder"></div></a></li><li role="region" aria-labelledby="gridsectionname-4"><a href="#section-4" id="gridsection-4" class="gridicon_link" role="link"><div id="gridsectionname-4" class="icon_content">תכנות פונקציונלי בפייתון </div><div class="image_holder"></div></a></li><li role="region" aria-labelledby="gridsectionname-5"><a href="#section-5" id="gridsection-5" class="gridicon_link" role="link"><div id="gridsectionname-5" class="icon_content">תרגילים בתכנות פונקציונאלי בפייתון -- Functional Programming Homeworks</div><div class="image_holder"></div></a></li><li role="region" aria-labelledby="gridsectionname-7"><a href="#section-7" id="gridsection-7" class="gridicon_link" role="link"><div id="gridsectionname-7" class="icon_content">תכנות לוגי - PROLOG - יעקב הכהן-קרנר </div><div class="image_holder"></div></a></li><li role="region" aria-labelledby="gridsectionname-9"><a href="#section-9" id="gridsection-9" class="gridicon_link" role="link"><div id="gridsectionname-9" class="icon_content">Functional Prog in Python</div><div class="image_holder"></div></a></li><li role="region" aria-labelledby="gridsectionname-10"><a href="#section-10" id="gridsection-10" class="gridicon_link" role="link"><div id="gridsectionname-10" class="icon_content">Logic Prog in Prolog</div><div class="image_holder"></div></a></li><li role="region" aria-labelledby="gridsectionname-13"><a href="#section-13" id="gridsection-13" class="gridicon_link" role="link"><div id="gridsectionname-13" class="icon_content">לקבוצות של חיים פריאנטי</div><div class="image_holder"></div></a></li><li role="region" aria-labelledby="gridsectionname-14"><a href="#section-14" id="gridsection-14" class="gridicon_link" role="link"><div id="gridsectionname-14" class="icon_content">תכנות לוגי - חני</div><div class="image_holder"></div></a></li></ul></div><div id="gridshadebox" class="gridcursor"><div id="gridshadebox_overlay" style="display: none;"></div><div id="gridshadebox_content" class="hide_content absolute" role="region" aria-label="צללית סביב התוכן"><img id="gridshadebox_close" style="display: none;" class="" src="https://moodle.jct.ac.il/theme/image.php/boost/format_grid/1653300962/close" role="link" alt="סגור חלון צף" aria-label="סגור חלון צף"></img><div id="gridshadebox_next" class="gridshadebox_area gridshadebox_next_area rtl" style="display: none;" role="link" aria-label="יחידת ההוראה הבאה"><img class="gridshadebox_arrow gridshadebox_next" src="https://moodle.jct.ac.il/theme/image.php/boost/format_grid/1653300962/fa-arrow-circle-left-w" alt="יחידת ההוראה הבאה" aria-label="יחידת ההוראה הבאה"></img></div><div id="gridshadebox_previous" class="gridshadebox_area gridshadebox_previous_area rtl" style="display: none;" role="link" aria-label="יחידת ההוראה הקודמת"><img class="gridshadebox_arrow gridshadebox_previous" src="https://moodle.jct.ac.il/theme/image.php/boost/format_grid/1653300962/fa-arrow-circle-right-w" alt="יחידת ההוראה הקודמת" aria-label="יחידת ההוראה הקודמת"></img></div><ul class="gtopics" id="gtopics"><li id="section-1" class="section main grid_section hide_section" role="region" aria-label="בחנים"><div class="content"><h3 class="sectionname">בחנים</h3><div class="summary"></div><ul class="section img-text"><li class="activity label modtype_label " id="module-602677"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b><span class="" style="font-size: large;">=== בחני חצי ראשון של הסמסטר ==</span><span class="" style="font-size: large;">=</span></b></p></div></div></div></div></div></div></li><li class="activity label modtype_label " id="module-602679"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b><span class="" style="font-size: large;">&nbsp; &nbsp;-- בחנים על תכנות פונקציונלי בפייתון --</span></b></p></div></div></div></div></div></div></li><li class="activity quiz modtype_quiz " id="module-602683"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/quiz/view.php?id=602683"><img src="https://moodle.jct.ac.il/theme/image.php/boost/quiz/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">בוחן בתכנות פונקציונלי בפייתון - 01/05/2022 - פתוח מהשעה 21:00 לשעה 23:00</span></a></div></div></div></div></li><li class="activity quiz modtype_quiz " id="module-602684"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/quiz/view.php?id=602684"><img src="https://moodle.jct.ac.il/theme/image.php/boost/quiz/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">בוחן בתכנות פונקציונלי בפייתון - 02/05/2022 - פתוח מהשעה 20:30 לשעה 22:30</span></a></div></div></div></div></li><li class="activity label modtype_label " id="module-602680"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b><span class="" style="font-size: large;">&nbsp; &nbsp;-- בחנים על תכנות לוגי בפרולוג --</span></b></p></div></div></div></div></div></div></li><li class="activity quiz modtype_quiz " id="module-602685"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/quiz/view.php?id=602685"><img src="https://moodle.jct.ac.il/theme/image.php/boost/quiz/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">בוחן בתכנות לוגי בפרולוג - 01/05/2022 - פתוח מהשעה 21:00 לשעה 23:00</span></a></div></div></div></div></li><li class="activity quiz modtype_quiz " id="module-602686"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/quiz/view.php?id=602686"><img src="https://moodle.jct.ac.il/theme/image.php/boost/quiz/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">בוחן בתכנות לוגי בפרולוג - 02/05/2022 - פתוח מהשעה 20:30 לשעה 22:30</span></a></div></div></div></div></li><li class="activity quiz modtype_quiz " id="module-603115"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/quiz/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">בוחן בתכנות לוגי בפרולוג - 16/05/2022 - פתוח מהשעה 21:00 לשעה 22:00</span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: ה<strong>מספר זיהוי</strong> הוא <strong>315362459</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity label modtype_label " id="module-602681"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b style="font-size: 0.9375rem;"><span class="" style="font-size: large;">----------------------------------------------</span></b></p></div></div></div></div></div></div></li><li class="activity label modtype_label " id="module-602678"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b><span class="" style="font-size: large;">=== בחני חצי שני של הסמסטר ==</span><span class="" style="font-size: large;">=</span></b></p></div></div></div></div></div></div></li></ul></div></li><li id="section-2" class="section main hidden grid_section hide_section" role="region" aria-label="תכנות לוגי בפרולוג "><div class="content"><h2>תכנות לוגי בפרולוג</h2><p>יחידת־הוראה זו מוסתרת</p><div class="availabilityinfo ishidden">
+    <span class="tag tag-info">לא זמין</span>
+</div></div></li><li id="section-3" class="section main hidden grid_section hide_section" role="region" aria-label="תרגילים בתכנות לוגי - פרולוג"><div class="content"><h2>תרגילים בתכנות לוגי - פרולוג</h2><p>יחידת־הוראה זו מוסתרת</p><div class="availabilityinfo ishidden">
+    <span class="tag tag-info">לא זמין</span>
+</div></div></li><li id="section-4" class="section main grid_section hide_section" role="region" aria-label="תכנות פונקציונלי בפייתון "><div class="content"><h3 class="sectionname">תכנות פונקציונלי בפייתון </h3><div class="summary"></div><ul class="section img-text"><li class="activity label modtype_label " id="module-592113"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b><span class="" style="font-size: large; color: rgb(51, 51, 51);">--- ספרים וקורסים על תכנות בשפת פייתון&nbsp; ---</span></b></p></div></div></div></div></div></div></li><li class="activity url modtype_url " id="module-588073"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/url/view.php?id=588073"><img src="https://moodle.jct.ac.il/theme/image.php/boost/url/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">קישור להורדת הספר Think Pyhton 2ed<span class="accesshide " > קישור לאתר אינטרנט</span></span></a></div></div></div></div></li><li class="activity url modtype_url " id="module-588074"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/url/view.php?id=588074"><img src="https://moodle.jct.ac.il/theme/image.php/boost/url/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">קישור להורדת הספר Fluent Python<span class="accesshide " > קישור לאתר אינטרנט</span></span></a></div></div></div></div></li><li class="activity url modtype_url " id="module-588079"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/url/view.php?id=588079"><img src="https://moodle.jct.ac.il/theme/image.php/boost/url/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">קורס לתכנות בפייתון - למתחילים<span class="accesshide " > קישור לאתר אינטרנט</span></span></a></div></div></div></div></li><li class="activity url modtype_url " id="module-588080"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/url/view.php?id=588080"><img src="https://moodle.jct.ac.il/theme/image.php/boost/url/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">קורס לתכנות בפייתון - למתקדמים <span class="accesshide " > קישור לאתר אינטרנט</span></span></a></div></div></div></div></li><li class="activity url modtype_url " id="module-588077"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/url/view.php?id=588077"><img src="https://moodle.jct.ac.il/theme/image.php/boost/url/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">אתר ממנו ניתן להוריד חומר על מחשבים בכלל ועל תכנות בשפת python בפרט (בעברית)<span class="accesshide " > קישור לאתר אינטרנט</span></span></a></div></div></div></div></li><li class="activity url modtype_url " id="module-588078"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/url/view.php?id=588078"><img src="https://moodle.jct.ac.il/theme/image.php/boost/core/1653300962/f/pdf-24" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">הקדמה לתכנות בפייתון <span class="accesshide " > קישור לאתר אינטרנט</span></span></a></div></div></div></div></li><li class="activity label modtype_label " id="module-592281"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b><span class="" style="font-size: large; color: rgb(51, 51, 51);">--- ספרים על תכנות פונקציונלי בשפת פייתון&nbsp; ---</span></b></p></div></div></div></div></div></div></li><li class="activity url modtype_url " id="module-588075"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/url/view.php?id=588075"><img src="https://moodle.jct.ac.il/theme/image.php/boost/url/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">קישור להורדת הספר Functional Programming in Python<span class="accesshide " > קישור לאתר אינטרנט</span></span></a></div></div></div></div></li><li class="activity url modtype_url " id="module-588076"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/url/view.php?id=588076"><img src="https://moodle.jct.ac.il/theme/image.php/boost/url/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">קישור -- Functional Python Programming - Steve Lott<span class="accesshide " > קישור לאתר אינטרנט</span></span></a></div></div></div></div></li><li class="activity label modtype_label " id="module-592280"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b><span class="" style="font-size: large; color: rgb(51, 51, 51);">--- מבוא לתכנות בשפת פייתון&nbsp; ---</span></b></p></div></div></div></div></div></div></li><li class="activity folder modtype_folder " id="module-588069"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/folder/view.php?id=588069"><img src="https://moodle.jct.ac.il/theme/image.php/boost/folder/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">חומר להרצאה של הפרק הראשון של הקורס<span class="accesshide " > תצוגת תיקיית קבצים</span></span></a></div></div></div></div></li><li class="activity resource modtype_resource " id="module-588068"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/resource/view.php?id=588068"><img src="https://moodle.jct.ac.il/theme/image.php/boost/core/1653300962/f/text-24" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">דוגמה תכנותית להדגמת סביבת ה-IDLE לפיתוח בשפת פייתון <span class="accesshide " > קובץ</span></span></a></div></div></div></div></li><li class="activity label modtype_label " id="module-592283"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b><span class="" style="font-size: large; color: rgb(51, 51, 51);">--- עקרונות של תכנות פונקציונלי בשפת פייתון&nbsp; ---</span></b></p></div></div></div></div></div></div></li><li class="activity folder modtype_folder " id="module-588070"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/folder/view.php?id=588070"><img src="https://moodle.jct.ac.il/theme/image.php/boost/folder/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">חומר להרצאה של הפרק השני של הקורס<span class="accesshide " > תצוגת תיקיית קבצים</span></span></a></div></div></div></div></li><li class="activity label modtype_label " id="module-592284"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b><span class="" style="font-size: large; color: rgb(51, 51, 51);">--- רקורסיה כביטוי של איטרציה&nbsp; ---</span></b></p></div></div></div></div></div></div></li><li class="activity folder modtype_folder " id="module-588071"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/folder/view.php?id=588071"><img src="https://moodle.jct.ac.il/theme/image.php/boost/folder/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">חומר להרצאה של הפרק השלישי של הקורס<span class="accesshide " > תצוגת תיקיית קבצים</span></span></a></div></div></div></div></li><li class="activity label modtype_label " id="module-592285"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b><span class="" style="font-size: large; color: rgb(51, 51, 51);">--- תבניות תכנותיות ועוד ...&nbsp; ---</span></b></p></div></div></div></div></div></div></li><li class="activity folder modtype_folder " id="module-588072"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/folder/view.php?id=588072"><img src="https://moodle.jct.ac.il/theme/image.php/boost/folder/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">חומר להרצאה של הפרק הרביעי של הקורס<span class="accesshide " > תצוגת תיקיית קבצים</span></span></a></div></div></div></div></li></ul></div></li><li id="section-5" class="section main grid_section hide_section" role="region" aria-label="תרגילים בתכנות פונקציונאלי בפייתון -- Functional Programming Homeworks"><div class="content"><h3 class="sectionname">תרגילים בתכנות פונקציונאלי בפייתון -- Functional Programming Homeworks</h3><div class="summary"></div><ul class="section img-text"><li class="activity label modtype_label " id="module-592286"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b><span class="" style="font-size: x-large; color: rgb(239, 69, 64);">--- תרגיל בית מס' 1 - מבוא לתכנות בשפת פייתון&nbsp; ---</span></b></p></div></div></div></div></div></div></li><li class="activity folder modtype_folder " id="module-588081"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/folder/view.php?id=588081"><img src="https://moodle.jct.ac.il/theme/image.php/boost/folder/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">מעבדה של הפרק הראשון של הקורס<span class="accesshide " > תצוגת תיקיית קבצים</span></span></a></div></div></div></div></li><li class="activity resource modtype_resource " id="module-592616"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/resource/view.php?id=592616"><img src="https://moodle.jct.ac.il/theme/image.php/boost/core/1653300962/f/pdf-24" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">הוראות להגשת תרגיל הבית מס' 1<span class="accesshide " > קובץ</span></span></a></div></div></div></div></li><li class="activity label modtype_label " id="module-596387"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b><span class="" style="font-size: medium;">====&nbsp; בודקים אוטומטיים להגשת הסעיפים של תרגיל הבית מס' 1 בפייתון ====</span></b></p></div></div></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-592290"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/vpl/view.php?id=592290"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לשאלה מס' 1<span class="accesshide " > Virtual programming lab</span></span></a></div></div></div></div></li><li class="activity assign modtype_assign " id="module-596897"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/assign/view.php?id=596897"><img src="https://moodle.jct.ac.il/theme/image.php/boost/assign/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">שאלה 2<span class="accesshide " > מטלה</span></span></a></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-592298"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/vpl/view.php?id=592298"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לשאלה מס' 3א<span class="accesshide " > Virtual programming lab</span></span></a></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-592548"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/vpl/view.php?id=592548"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לשאלה מס' 3ב<span class="accesshide " > Virtual programming lab</span></span></a></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-592549"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/vpl/view.php?id=592549"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לשאלה מס' 3ג<span class="accesshide " > Virtual programming lab</span></span></a></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-592556"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/vpl/view.php?id=592556"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לשאלה מס' 4<span class="accesshide " > Virtual programming lab</span></span></a></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-592558"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/vpl/view.php?id=592558"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לשאלה מס' 5<span class="accesshide " > Virtual programming lab</span></span></a></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-592560"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/vpl/view.php?id=592560"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לשאלה מס' 6<span class="accesshide " > Virtual programming lab</span></span></a></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-592561"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/vpl/view.php?id=592561"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לשאלה מס' 7<span class="accesshide " > Virtual programming lab</span></span></a></div></div></div></div></li><li class="activity assign modtype_assign " id="module-592615"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/assign/view.php?id=592615"><img src="https://moodle.jct.ac.il/theme/image.php/boost/assign/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת הגשה לשאלה מס' 8 <span class="accesshide " > מטלה</span></span></a></div></div></div></div></li><li class="activity label modtype_label " id="module-592287"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b><span class="" style="font-size: x-large; color: rgb(239, 69, 64);">--- תרגיל בית מס' 2 - עקרונות התכנות הפונקציונלי בשפת פייתון&nbsp; ---</span></b></p></div></div></div></div></div></div></li><li class="activity folder modtype_folder " id="module-588082"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/folder/view.php?id=588082"><img src="https://moodle.jct.ac.il/theme/image.php/boost/folder/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">מעבדה של הפרק השני של הקורס<span class="accesshide " > תצוגת תיקיית קבצים</span></span></a></div></div></div></div></li><li class="activity label modtype_label " id="module-596988"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b><span class="" style="font-size: medium;">====&nbsp; בודקים אוטומטיים להגשת הסעיפים של תרגיל הבית מס' 2 בתכנות פונקציונלי ====</span></b></p></div></div></div></div></div></div></li><li class="activity resource modtype_resource " id="module-596312"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/resource/view.php?id=596312"><img src="https://moodle.jct.ac.il/theme/image.php/boost/core/1653300962/f/document-24" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">הוראות להגשת תרגיל הבית מס' 2<span class="accesshide " > קובץ</span></span></a></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-596315"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/vpl/view.php?id=596315"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לשאלה מס' 1<span class="accesshide " > Virtual programming lab</span></span></a></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-596324"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/vpl/view.php?id=596324"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לשאלה מס' 2<span class="accesshide " > Virtual programming lab</span></span></a></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-596325"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/vpl/view.php?id=596325"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לשאלה מס' 3<span class="accesshide " > Virtual programming lab</span></span></a></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-596389"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/vpl/view.php?id=596389"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לשאלה מס' 4<span class="accesshide " > Virtual programming lab</span></span></a></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-596390"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/vpl/view.php?id=596390"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לשאלה מס' 5<span class="accesshide " > Virtual programming lab</span></span></a></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-596391"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/vpl/view.php?id=596391"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לשאלה מס' 6<span class="accesshide " > Virtual programming lab</span></span></a></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-596392"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/vpl/view.php?id=596392"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לשאלה מס' 7<span class="accesshide " > Virtual programming lab</span></span></a></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-596393"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/vpl/view.php?id=596393"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לשאלה מס' 8<span class="accesshide " > Virtual programming lab</span></span></a></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-604370"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/vpl/view.php?id=604370"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לשאלה מס' 8 -- לאריה שבסון ולעידן ממן <span class="accesshide " > Virtual programming lab</span></span></a></div></div></div></div></li><li class="activity assign modtype_assign " id="module-596395"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/assign/view.php?id=596395"><img src="https://moodle.jct.ac.il/theme/image.php/boost/assign/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת הגשה לשאלה מס' 9<span class="accesshide " > מטלה</span></span></a></div></div></div></div></li><li class="activity label modtype_label " id="module-599971"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b><span class="" style="font-size: x-large; color: rgb(239, 69, 64);">--- תרגיל בית מס' 3 - תכנות פונקציונלי בשפת פייתון - רקורסיה&nbsp; ---</span></b></p></div></div></div></div></div></div></li><li class="activity folder modtype_folder " id="module-588083"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/folder/view.php?id=588083"><img src="https://moodle.jct.ac.il/theme/image.php/boost/folder/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">מעבדה של הפרק השלישי של הקורס<span class="accesshide " > תצוגת תיקיית קבצים</span></span></a></div></div></div></div></li><li class="activity resource modtype_resource " id="module-600139"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/resource/view.php?id=600139"><img src="https://moodle.jct.ac.il/theme/image.php/boost/core/1653300962/f/pdf-24" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">הוראות הגשה לתרגיל הבית מס' 3<span class="accesshide " > קובץ</span></span></a></div></div></div></div></li><li class="activity label modtype_label " id="module-600025"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b style="font-size: 0.9375rem;"><span class="" style="font-size: x-large; color: rgb(239, 69, 64);">--- Homework Nr. 3 - Functional Programming in Python - Recursion ---</span></b><br></p></div></div></div></div></div></div></li><li class="activity label modtype_label " id="module-600002"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b><span class="" style="font-size: medium;">====&nbsp; בודקים אוטומטיים לפתרונות רקורסיביים לא זנביים&nbsp; - Automatic Checkers for non-tail Recursion ====</span></b></p></div></div></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-599998"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לסעיף 1 של תרגיל הבית מס' 3 - Automatic Checker for Question Nr 1<span class="accesshide " > Virtual programming lab</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.02</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-600000"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לסעיף 2 של תרגיל הבית מס' 3  - Automatic Checker for Question Nr 2<span class="accesshide " > Virtual programming lab</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.02</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-600003"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לסעיף 3 של תרגיל הבית מס' 3  - Automatic Checker for Question Nr 3<span class="accesshide " > Virtual programming lab</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.02</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-600004"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לסעיף 4 של תרגיל הבית מס' 3  - Automatic Checker for Question Nr 4<span class="accesshide " > Virtual programming lab</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.02</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-600005"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לסעיף 5 של תרגיל הבית מס' 3  - Automatic Checker for Question Nr 5<span class="accesshide " > Virtual programming lab</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.02</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-600006"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לסעיף 6 של תרגיל הבית מס' 3  - Automatic Checker for Question Nr 6<span class="accesshide " > Virtual programming lab</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.02</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-600007"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לסעיף 7 של תרגיל הבית מס' 3  - Automatic Checker for Question Nr 7<span class="accesshide " > Virtual programming lab</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.02</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-600008"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לסעיף 8 של תרגיל הבית מס' 3  - Automatic Checker for Question Nr 8<span class="accesshide " > Virtual programming lab</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.02</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity label modtype_label " id="module-600009"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b><span class="" style="font-size: medium;">====&nbsp; בודקים אוטומטיים לפתרונות רקורסיביים זנביים - Automatic Checkers for tail Recursion ====</span></b></p></div></div></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-600098"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לסעיף 1 של תרגיל הבית מס' 3 - Automatic Checker for Question Nr 1<span class="accesshide " > Virtual programming lab</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.02</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-600101"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לסעיף 2 של תרגיל הבית מס' 3 - Automatic Checker for Question Nr 2<span class="accesshide " > Virtual programming lab</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.02</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-600103"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לסעיף 3 של תרגיל הבית מס' 3 - Automatic Checker for Question Nr 3<span class="accesshide " > Virtual programming lab</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.02</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-600104"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לסעיף 4 של תרגיל הבית מס' 3 - Automatic Checker for Question Nr 4<span class="accesshide " > Virtual programming lab</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.02</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-600108"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לסעיף 5 של תרגיל הבית מס' 3 - Automatic Checker for Question Nr 5<span class="accesshide " > Virtual programming lab</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.02</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-600110"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לסעיף 6 של תרגיל הבית מס' 3 - Automatic Checker for Question Nr 6<span class="accesshide " > Virtual programming lab</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.02</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-600111"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לסעיף 7 של תרגיל הבית מס' 3 - Automatic Checker for Question Nr 7<span class="accesshide " > Virtual programming lab</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.02</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-600113"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לסעיף 8 של תרגיל הבית מס' 3 - Automatic Checker for Question Nr 8<span class="accesshide " > Virtual programming lab</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.02</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity label modtype_label " id="module-600833"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b><span class="" style="font-size: x-large; color: rgb(239, 69, 64);">--- תרגיל בית מס' 4 - תכנות פונקציונלי בשפת פייתון - תבניות תכנויות&nbsp; ---</span></b></p></div></div></div></div></div></div></li><li class="activity folder modtype_folder " id="module-588084"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/folder/view.php?id=588084"><img src="https://moodle.jct.ac.il/theme/image.php/boost/folder/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">מעבדה של הפרק הרביעי של הקורס<span class="accesshide " > תצוגת תיקיית קבצים</span></span></a></div></div></div></div></li><li class="activity label modtype_label " id="module-600831"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b style="font-size: 0.9375rem;"><span class="" style="font-size: x-large; color: rgb(239, 69, 64);">--- Homework Nr. 4 - Functional Programming in Python - Design Patterns ---</span></b><br></p></div></div></div></div></div></div></li><li class="activity label modtype_label " id="module-600834"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b><span class="" style="font-size: medium;">====&nbsp; בודקים אוטומטיים לפתרונות שמשתמשים בתבניות&nbsp; - Automatic Checkers for solutions that use Design Patterns ====</span></b></p></div></div></div></div></div></div></li><li class="activity resource modtype_resource " id="module-600955"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/resource/view.php?id=600955"><img src="https://moodle.jct.ac.il/theme/image.php/boost/core/1653300962/f/pdf-24" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">הוראות להגשת תרגיל הבית מס' 4<span class="accesshide " > קובץ</span></span></a></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-600837"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לסעיף 1 של תרגיל הבית מס' 4 - Automatic Checker for Question Nr 1<span class="accesshide " > Virtual programming lab</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.02</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-600847"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לסעיף 2 של תרגיל הבית מס' 4 - Automatic Checker for Question Nr 2<span class="accesshide " > Virtual programming lab</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.02</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-600852"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לסעיף 3 של תרגיל הבית מס' 4 - Automatic Checker for Question Nr 3<span class="accesshide " > Virtual programming lab</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.02</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity assign modtype_assign " id="module-600937"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/assign/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת הגשה לסעיף 4 של תרגיל הבית מס' 4 - Submission Box for Question Nr 4<span class="accesshide " > מטלה</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.02</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity label modtype_label " id="module-601265"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b><span class="" style="font-size: x-large; color: rgb(239, 69, 64);">--- תרגיל בית מס' 5 - תכנות פונקציונלי בשפת פייתון - גנרטורים&nbsp; ---</span></b></p></div></div></div></div></div></div></li><li class="activity resource modtype_resource " id="module-588085"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/resource/view.php?id=588085"><img src="https://moodle.jct.ac.il/theme/image.php/boost/core/1653300962/f/pdf-24" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">דף תירגול מס' 5 - שימוש ב-generators<span class="accesshide " > קובץ</span></span></a></div></div></div></div></li><li class="activity label modtype_label " id="module-601264"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b style="font-size: 0.9375rem;"><span class="" style="font-size: x-large; color: rgb(239, 69, 64);">--- Homework Nr. 5 - Functional Programming in Python - Generators ---</span></b><br></p></div></div></div></div></div></div></li><li class="activity label modtype_label " id="module-601266"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b><span class="" style="font-size: medium;">====&nbsp; בודקים אוטומטיים לפתרונות שמשתמשים בגנטורים&nbsp; - Automatic Checkers for solutions that use Generators ====</span></b></p></div></div></div></div></div></div></li><li class="activity resource modtype_resource " id="module-601282"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/resource/view.php?id=601282"><img src="https://moodle.jct.ac.il/theme/image.php/boost/core/1653300962/f/document-24" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">הוראות להגשת תרגיל הבית מס' 5<span class="accesshide " > קובץ</span></span></a></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-601267"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לסעיף 1 של תרגיל הבית מס' 5 - Automatic Checker for Question Nr 1<span class="accesshide " > Virtual programming lab</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.02</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-601275"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לסעיף 2 של תרגיל הבית מס' 5 - Automatic Checker for Question Nr 2<span class="accesshide " > Virtual programming lab</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.02</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li></ul></div></li><li id="section-6" class="section main hidden grid_section hide_section" role="region" aria-label="מבחנים משנים קודמות"><div class="content"><h2>מבחנים משנים קודמות</h2><p>יחידת־הוראה זו מוסתרת</p><div class="availabilityinfo ishidden">
+    <span class="tag tag-info">לא זמין</span>
+</div></div></li><li id="section-7" class="section main grid_section hide_section" role="region" aria-label="תכנות לוגי - PROLOG - יעקב הכהן-קרנר "><div class="content"><h3 class="sectionname">תכנות לוגי - PROLOG - יעקב הכהן-קרנר </h3><div class="summary"></div><ul class="section img-text"><li class="activity folder modtype_folder " id="module-590099"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/folder/view.php?id=590099"><img src="https://moodle.jct.ac.il/theme/image.php/boost/folder/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">מעבדות ותרגילים בפרולוג<span class="accesshide " > תצוגת תיקיית קבצים</span></span></a></div></div></div></div></li><li class="activity folder modtype_folder " id="module-590101"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/folder/view.php?id=590101"><img src="https://moodle.jct.ac.il/theme/image.php/boost/folder/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">הרצאות בפרולוג<span class="accesshide " > תצוגת תיקיית קבצים</span></span></a></div></div></div></div></li><li class="activity attendance modtype_attendance " id="module-592453"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/attendance/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">נוכחות תלמידים - קבוצת הרצאה 153105-01-5782-01 - פרופ' יעקב הכהן קרנר</span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין עד <strong>22/02/2022, 17:00</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity label modtype_label " id="module-595372"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b><span class="" style="font-size: x-large; color: rgb(239, 69, 64);">========&nbsp; תרגיל בית מס' 1 בפרולוג&nbsp; -&nbsp; Prolog Homework Nr 1 ========</span></b></p></div></div></div></div></div></div></li><li class="activity resource modtype_resource " id="module-595371"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/resource/view.php?id=595371"><img src="https://moodle.jct.ac.il/theme/image.php/boost/core/1653300962/f/document-24" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">הוראות להכנת קבצי פרולוג להגשת פתרונות לסעיפי תרגיל הבית מס' 1<span class="accesshide " > קובץ</span></span></a></div></div></div></div></li><li class="activity resource modtype_resource " id="module-602308"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/resource/view.php?id=602308"><img src="https://moodle.jct.ac.il/theme/image.php/boost/core/1653300962/f/document-24" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">Instructions for the submission of your solutions to homework Nr 1<span class="accesshide " > קובץ</span></span></a></div></div></div></div></li><li class="activity label modtype_label " id="module-596995"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b><span class="" style="font-size: medium;">========&nbsp; בודקים אוטומטיים להגשת הסעיפים של תרגיל הבית מס' 1 בפרולוג&nbsp; - Automatic Checkers for Prolog Homework Nr 1 ========</span></b></p></div></div></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-594980"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לשאלה מס' 2 של תרגיל הבית מס' 1 בפרולוג - Automatic Checker for Question 2<span class="accesshide " > Virtual programming lab</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.02</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-595331"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לשאלה מס' 4 של תרגיל הבית מס' 1 בפרולוג - Automatic Checker for Question 4<span class="accesshide " > Virtual programming lab</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.02</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-595335"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לשאלה מס' 5 של תרגיל הבית מס' 1 בפרולוג - Automatic Checker for Question 5<span class="accesshide " > Virtual programming lab</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.02</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-595349"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לשאלה מס' 6 של תרגיל הבית מס' 1 בפרולוג - Automatic Checker for Question 6<span class="accesshide " > Virtual programming lab</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.02</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-595350"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לשאלה מס' 7 של תרגיל הבית מס' 1 בפרולוג - Automatic Checker for Question 7<span class="accesshide " > Virtual programming lab</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.02</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-595351"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לשאלה מס' 9 של תרגיל הבית מס' 1 בפרולוג - Automatic Checker for Question 9<span class="accesshide " > Virtual programming lab</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.02</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-595352"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לשאלה מס' 10 של תרגיל הבית מס' 1 בפרולוג - Automatic Checker for Question 10<span class="accesshide " > Virtual programming lab</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.02</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-595355"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לשאלה מס' 11 של תרגיל הבית מס' 1 בפרולוג - Automatic Checker for Question 11<span class="accesshide " > Virtual programming lab</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.02</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-595356"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לשאלה מס' 12 של תרגיל הבית מס' 1 בפרולוג - Automatic Checker for Question 12<span class="accesshide " > Virtual programming lab</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.02</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-595359"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לשאלה מס' 13 של תרגיל הבית מס' 1 בפרולוג - Automatic Checker for Question 13<span class="accesshide " > Virtual programming lab</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.02</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-595360"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לשאלה מס'14 של תרגיל הבית מס' 1 בפרולוג - Automatic Checker for Question 14<span class="accesshide " > Virtual programming lab</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.02</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity label modtype_label " id="module-595373"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b style="font-size: medium;">====-----------------------------------------------------------------------------------------====</b><br></p></div></div></div></div></div></div></li><li class="activity label modtype_label " id="module-598642"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b><span class="" style="font-size: x-large; color: rgb(239, 69, 64);">========&nbsp; תרגיל בית מס' 2 בפרולוג <b><span>&nbsp; -&nbsp; Prolog Homework Nr 2</span></b>========</span></b></p></div></div></div></div></div></div></li><li class="activity resource modtype_resource " id="module-598643"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/resource/view.php?id=598643"><img src="https://moodle.jct.ac.il/theme/image.php/boost/core/1653300962/f/document-24" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">הוראות להכנת קובץ פרולוג להגשת פתרונותיכם לתרגיל הבית מס' 2</span></a></div></div></div></div></li><li class="activity resource modtype_resource " id="module-603939"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/resource/view.php?id=603939"><img src="https://moodle.jct.ac.il/theme/image.php/boost/core/1653300962/f/document-24" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">Instructions for the submission of your solutions to homework Nr 2<span class="accesshide " > קובץ</span></span></a></div></div></div></div></li><li class="activity label modtype_label " id="module-603940"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b><span class="" style="font-size: medium;">========&nbsp; בודק אוטומטי להגשת תרגיל הבית מס' 2 בפרולוג&nbsp; - Automatic Checker for Prolog Homework Nr 2 ========</span></b></p></div></div></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-598645"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לכל הסעיפים של תרגיל הבית מס' 2 בפרולוג - Automatic Checker for Prolog Homework Nr 2<span class="accesshide " > Virtual programming lab</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: אינך שייך ל <strong>153105.01.5782.01</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity label modtype_label " id="module-601300"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b style="font-size: medium;">====-----------------------------------------------------------------------------------------====</b><br></p></div></div></div></div></div></div></li><li class="activity label modtype_label " id="module-599045"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b><span class="" style="font-size: x-large; color: rgb(239, 69, 64);">========&nbsp; תרגיל בית מס' 3 בפרולוג <b><span><b><span> -&nbsp; Prolog Homework Nr 3</span></b>========</span></b></span></b></p></div></div></div></div></div></div></li><li class="activity resource modtype_resource " id="module-599046"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/resource/view.php?id=599046"><img src="https://moodle.jct.ac.il/theme/image.php/boost/core/1653300962/f/document-24" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">הוראות להכנת קובץ פרולוג להגשת פתרונותיכם לתרגיל הבית מס' 3</span></a></div></div></div></div></li><li class="activity resource modtype_resource " id="module-605003"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/resource/view.php?id=605003"><img src="https://moodle.jct.ac.il/theme/image.php/boost/core/1653300962/f/pdf-24" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">הוראות להכנת קובץ פרולוג להגשת פתרונותיכם לתרגיל הבית מס' 3</span></a></div></div></div></div></li><li class="activity label modtype_label " id="module-599047"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b><span class="" style="font-size: medium;">========&nbsp; בודק אוטומטי להגשת כל הסעיפים של תרגיל הבית מס' 3 בפרולוג <b><span>- Automatic Checker for Prolog Homework Nr 3 </span></b>========</span></b></p></div></div></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-599048"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לכל הסעיפים של תרגיל הבית מס' 3 בפרולוג- Automatic Checker for Prolog Homework Nr 3<span class="accesshide " > Virtual programming lab</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי שעומד באחד התנאים הבאים:<ul><li>שייך ל <strong>153105.01.5782.02</strong></li><li>שייך ל <strong>153105.10.5782.01</strong></li><li>שייך ל <strong>153105.11.5782.01</strong></li></ul>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity label modtype_label " id="module-601299"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b style="font-size: medium;">====-----------------------------------------------------------------------------------------====</b><br></p></div></div></div></div></div></div></li><li class="activity label modtype_label " id="module-601169"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b><span class="" style="font-size: x-large; color: rgb(239, 69, 64);">========&nbsp; תרגיל בית מס' 4 בפרולוג ========</span></b></p></div></div></div></div></div></div></li><li class="activity resource modtype_resource " id="module-601175"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/resource/view.php?id=601175"><img src="https://moodle.jct.ac.il/theme/image.php/boost/core/1653300962/f/document-24" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">הוראות להכנת קובץ פרולוג להגשת פתרונותיכם לתרגיל הבית מס' 4</span></a></div></div></div></div></li><li class="activity label modtype_label " id="module-601171"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b><span class="" style="font-size: medium;">========&nbsp; בודק אוטומטי להגשת כל הסעיפים של תרגיל הבית מס' 4 בפרולוג, פרט לסעיף מס' 2 ========</span></b></p></div></div></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-601172"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לכל הסעיפים (פרט לסעיף 2) של תרגיל הבית מס' 4 בפרולוג<span class="accesshide " > Virtual programming lab</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.02</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity assign modtype_assign " id="module-601193"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><div class=" dimmed dimmed_text"><img src="https://moodle.jct.ac.il/theme/image.php/boost/assign/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת הגשה לסעיף 2 של תרגיל הבית מס' 4 בפרולוג<span class="accesshide " > מטלה</span></span></div></div><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.01.5782.02</strong>
+</div><div class="contentwithoutlink  dimmed dimmed_text"></div></div></div></div></li><li class="activity label modtype_label " id="module-601301"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b style="font-size: medium;">====-----------------------------------------------------------------------------------------====</b><br></p></div></div></div></div></div></div></li><li class="activity label modtype_label " id="module-601297"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b><span class="" style="font-size: x-large; color: rgb(239, 69, 64);">========&nbsp; תרגיל בית מס' 5 בפרולוג ========</span></b></p></div></div></div></div></div></div></li><li class="activity resource modtype_resource " id="module-601306"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/resource/view.php?id=601306"><img src="https://moodle.jct.ac.il/theme/image.php/boost/core/1653300962/f/document-24" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">הוראות להכנת קובץ פרולוג להגשת פתרונותיכם לתרגיל הבית מס' 5</span></a></div></div></div></div></li><li class="activity label modtype_label " id="module-601298"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b><span class="" style="font-size: medium;">========&nbsp; בודק אוטומטי להגשת כל הסעיפים של תרגיל הבית מס' 5 בפרולוג ========</span></b></p></div></div></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-601302"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/vpl/view.php?id=601302"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לכל הסעיפים של תרגיל הבית מס' 5 בפרולוג<span class="accesshide " > Virtual programming lab</span></span></a></div></div></div></div></li><li class="activity label modtype_label " id="module-601303"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b style="font-size: medium;">====-----------------------------------------------------------------------------------------====</b><br></p></div></div></div></div></div></div></li><li class="activity label modtype_label " id="module-601322"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b><span class="" style="font-size: x-large; color: rgb(239, 69, 64);">========&nbsp; תרגיל בית מס' 6 בפרולוג ========</span></b></p></div></div></div></div></div></div></li><li class="activity resource modtype_resource " id="module-601325"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/resource/view.php?id=601325"><img src="https://moodle.jct.ac.il/theme/image.php/boost/core/1653300962/f/document-24" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">הוראות להכנת קובץ פרולוג להגשת פתרונותיכם לתרגיל הבית מס' 6</span></a></div></div></div></div></li><li class="activity label modtype_label " id="module-601323"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><p><b><span class="" style="font-size: medium;">========&nbsp; בודק אוטומטי להגשת כל הסעיפים של תרגיל הבית מס' 6 בפרולוג ========</span></b></p></div></div></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-601324"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/vpl/view.php?id=601324"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לכל הסעיפים של תרגיל הבית מס' 6 בפרולוג<span class="accesshide " > Virtual programming lab</span></span></a></div></div></div></div></li><li class="activity vpl modtype_vpl " id="module-604371"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/vpl/view.php?id=604371"><img src="https://moodle.jct.ac.il/theme/image.php/boost/vpl/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">תיבת בודק אוטומטי לכל הסעיפים של תרגיל הבית מס' 6 בפרולוג -- לאריה שבסון ולעידן ממן <span class="accesshide " > Virtual programming lab</span></span></a></div></div></div></div></li></ul></div></li><li id="section-8" class="section main grid_section hide_section" role="region" aria-label="Functional and Logical Prog"><div class="content"><h2>Functional and Logical Prog</h2><p>יחידת־הוראה זו מוסתרת</p></div></li><li id="section-9" class="section main grid_section hide_section" role="region" aria-label="Functional Prog in Python"><div class="content"><h2>Functional Prog in Python</h2><p>יחידת־הוראה זו מוסתרת</p><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.10.5782.01</strong>
+</div></div></li><li id="section-10" class="section main grid_section hide_section" role="region" aria-label="Logic Prog in Prolog"><div class="content"><h2>Logic Prog in Prolog</h2><p>יחידת־הוראה זו מוסתרת</p><div class="availabilityinfo isrestricted">
+    <span class="tag tag-info">גישה מותנת</span> זמין רק למי ש: שייך ל <strong>153105.10.5782.01</strong>
+</div></div></li><li id="section-11" class="section main hidden grid_section hide_section" role="region" aria-label="Prolog-Lab-Files-from-Yaakov"><div class="content"><h2>Prolog-Lab-Files-from-Yaakov</h2><p>יחידת־הוראה זו מוסתרת</p><div class="availabilityinfo ishidden">
+    <span class="tag tag-info">לא זמין</span>
+</div></div></li><li id="section-12" class="section main hidden grid_section hide_section" role="region" aria-label="Exams from previous years"><div class="content"><h2>Exams from previous years</h2><p>יחידת־הוראה זו מוסתרת</p><div class="availabilityinfo ishidden">
+    <span class="tag tag-info">לא זמין</span>
+</div></div></li><li id="section-13" class="section main grid_section hide_section" role="region" aria-label="לקבוצות של חיים פריאנטי"><div class="content"><h3 class="sectionname">לקבוצות של חיים פריאנטי</h3><div class="summary"></div><ul class="section img-text"><li class="activity zoom modtype_zoom " id="module-599490"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/zoom/view.php?id=599490"><img src="https://moodle.jct.ac.il/theme/image.php/boost/zoom/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">מפגש זום - מבח"ר - ט' ניסן התשפ"ב</span></a></div></div></div></div></li><li class="activity zoom modtype_zoom " id="module-599974"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/zoom/view.php?id=599974"><img src="https://moodle.jct.ac.il/theme/image.php/boost/zoom/1653300962/icon" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">מפגש זום - לב - קבוצה 26 - כ"ז אדר ב' התשפ"ב</span></a></div></div></div></div></li></ul></div></li><li id="section-14" class="section main grid_section hide_section" role="region" aria-label="תכנות לוגי - חני"><div class="content"><h3 class="sectionname">תכנות לוגי - חני</h3><div class="summary"></div><ul class="section img-text"><li class="activity resource modtype_resource " id="module-600369"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/resource/view.php?id=600369"><img src="https://moodle.jct.ac.il/theme/image.php/boost/core/1653300962/f/pdf-24" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">פרולוג - מצגת 1<span class="accesshide " > קובץ</span></span></a></div></div></div></div></li><li class="activity resource modtype_resource " id="module-601552"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/resource/view.php?id=601552"><img src="https://moodle.jct.ac.il/theme/image.php/boost/core/1653300962/f/pdf-24" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">פרולוג - מצגת 2<span class="accesshide " > קובץ</span></span></a></div></div></div></div></li><li class="activity resource modtype_resource " id="module-602748"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/resource/view.php?id=602748"><img src="https://moodle.jct.ac.il/theme/image.php/boost/core/1653300962/f/pdf-24" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">פרולוג - מצגת 3<span class="accesshide " > קובץ</span></span></a></div></div></div></div></li><li class="activity resource modtype_resource " id="module-604206"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/resource/view.php?id=604206"><img src="https://moodle.jct.ac.il/theme/image.php/boost/core/1653300962/f/pdf-24" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">פרולוג - מצגת 4<span class="accesshide " > קובץ</span></span></a></div></div></div></div></li><li class="activity resource modtype_resource " id="module-605087"><div><div class="mod-indent-outer"><div class="mod-indent"></div><div><div class="activityinstance"><a class="" onclick="" href="https://moodle.jct.ac.il/mod/resource/view.php?id=605087"><img src="https://moodle.jct.ac.il/theme/image.php/boost/core/1653300962/f/pdf-24" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">פרולוג -מצגת 5<span class="accesshide " > קובץ</span></span></a></div></div></div></div></li></ul></div></li></ul></div></div><div class="clearer">&nbsp;</div></div></div></div>
+                            
+                            
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div id="nav-drawer" data-region="drawer" class="d-print-none moodle-has-zindex " aria-hidden="false" tabindex="-1">
+        <nav class="list-group">
+            <a class="list-group-item list-group-item-action active" href="https://moodle.jct.ac.il/course/view.php?id=55232" data-key="coursehome" data-isexpandable="0" data-indent="0" data-showdivider="0" data-type="60" data-nodetype="0" data-collapse="0" data-forceopen="1" data-isactive="1" data-hidden="0" data-preceedwithhr="0" >
+                <div class="m-l-0">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+                        </span>
+                        <span class="media-body font-weight-bold">153105.5782 - תכנות פונקציונלית ולוגית - ב - אב</span>
+                    </div>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action " href="https://moodle.jct.ac.il/user/index.php?id=55232" data-key="participants" data-isexpandable="0" data-indent="0" data-showdivider="0" data-type="90" data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="55232">
+                <div class="m-l-0">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-users fa-fw " aria-hidden="true"  ></i>
+                        </span>
+                        <span class="media-body ">משתתפים</span>
+                    </div>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action " href="https://moodle.jct.ac.il/badges/view.php?type=2&amp;id=55232" data-key="badgesview" data-isexpandable="0" data-indent="0" data-showdivider="0" data-type="70" data-nodetype="0" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="55232">
+                <div class="m-l-0">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-shield fa-fw " aria-hidden="true"  ></i>
+                        </span>
+                        <span class="media-body ">הישגים</span>
+                    </div>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action " href="https://moodle.jct.ac.il/admin/tool/lp/coursecompetencies.php?courseid=55232" data-key="competencies" data-isexpandable="0" data-indent="0" data-showdivider="0" data-type="70" data-nodetype="0" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="55232">
+                <div class="m-l-0">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-check-square-o fa-fw " aria-hidden="true"  ></i>
+                        </span>
+                        <span class="media-body ">מיומנויות</span>
+                    </div>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action " href="https://moodle.jct.ac.il/grade/report/index.php?id=55232" data-key="grades" data-isexpandable="0" data-indent="0" data-showdivider="0" data-type="70" data-nodetype="0" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="55232">
+                <div class="m-l-0">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-table fa-fw " aria-hidden="true"  ></i>
+                        </span>
+                        <span class="media-body ">ציונים</span>
+                    </div>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action " href="https://moodle.jct.ac.il/course/view.php?id=55232#section-0" data-key="262796" data-isexpandable="0" data-indent="0" data-showdivider="0" data-type="30" data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="55232">
+                <div class="m-l-0">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-folder-o fa-fw " aria-hidden="true"  ></i>
+                        </span>
+                        <span class="media-body ">יחידת מבוא</span>
+                    </div>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action " href="https://moodle.jct.ac.il/course/view.php?id=55232#section-1" data-key="268261" data-isexpandable="0" data-indent="0" data-showdivider="0" data-type="30" data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="55232">
+                <div class="m-l-0">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-folder-o fa-fw " aria-hidden="true"  ></i>
+                        </span>
+                        <span class="media-body ">בחנים</span>
+                    </div>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action " href="https://moodle.jct.ac.il/course/view.php?id=55232#section-4" data-key="262800" data-isexpandable="0" data-indent="0" data-showdivider="0" data-type="30" data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="55232">
+                <div class="m-l-0">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-folder-o fa-fw " aria-hidden="true"  ></i>
+                        </span>
+                        <span class="media-body ">תכנות פונקציונלי בפייתון </span>
+                    </div>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action " href="https://moodle.jct.ac.il/course/view.php?id=55232#section-5" data-key="262801" data-isexpandable="0" data-indent="0" data-showdivider="0" data-type="30" data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="55232">
+                <div class="m-l-0">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-folder-o fa-fw " aria-hidden="true"  ></i>
+                        </span>
+                        <span class="media-body ">תרגילים בתכנות פונקציונאלי בפייתון -- Functional Programming Homeworks</span>
+                    </div>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action " href="https://moodle.jct.ac.il/course/view.php?id=55232#section-7" data-key="267540" data-isexpandable="0" data-indent="0" data-showdivider="0" data-type="30" data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="55232">
+                <div class="m-l-0">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-folder-o fa-fw " aria-hidden="true"  ></i>
+                        </span>
+                        <span class="media-body ">תכנות לוגי - PROLOG - יעקב הכהן-קרנר </span>
+                    </div>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action " href="https://moodle.jct.ac.il/course/view.php?id=55232#section-13" data-key="268116" data-isexpandable="0" data-indent="0" data-showdivider="0" data-type="30" data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="55232">
+                <div class="m-l-0">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-folder-o fa-fw " aria-hidden="true"  ></i>
+                        </span>
+                        <span class="media-body ">לקבוצות של חיים פריאנטי</span>
+                    </div>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action " href="https://moodle.jct.ac.il/course/view.php?id=55232#section-14" data-key="268184" data-isexpandable="0" data-indent="0" data-showdivider="0" data-type="30" data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="55232">
+                <div class="m-l-0">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-folder-o fa-fw " aria-hidden="true"  ></i>
+                        </span>
+                        <span class="media-body ">תכנות לוגי - חני</span>
+                    </div>
+                </div>
+            </a>
+        </nav>
+        <nav class="list-group m-t-1">
+            <a class="list-group-item list-group-item-action " href="https://moodle.jct.ac.il/" data-key="home" data-isexpandable="0" data-indent="0" data-showdivider="1" data-type="1" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="0" data-hidden="0" data-preceedwithhr="0" >
+                <div class="m-l-0">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-home fa-fw " aria-hidden="true"  ></i>
+                        </span>
+                        <span class="media-body ">ראשי</span>
+                    </div>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action " href="https://moodle.jct.ac.il/my/" data-key="myhome" data-isexpandable="0" data-indent="0" data-showdivider="0" data-type="70" data-nodetype="0" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="home">
+                <div class="m-l-0">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-tachometer fa-fw " aria-hidden="true"  ></i>
+                        </span>
+                        <span class="media-body ">עדכונים בקורסים שלי</span>
+                    </div>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action " href="https://moodle.jct.ac.il/calendar/view.php?view=month&amp;course=55232" data-key="calendar" data-isexpandable="0" data-indent="0" data-showdivider="0" data-type="60" data-nodetype="0" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="1">
+                <div class="m-l-0">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-calendar fa-fw " aria-hidden="true"  ></i>
+                        </span>
+                        <span class="media-body ">לוח-שנה</span>
+                    </div>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action " href="https://moodle.jct.ac.il/user/files.php" data-key="privatefiles" data-isexpandable="0" data-indent="0" data-showdivider="0" data-type="70" data-nodetype="0" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="1">
+                <div class="m-l-0">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-file-o fa-fw " aria-hidden="true"  ></i>
+                        </span>
+                        <span class="media-body ">הקבצים שלי</span>
+                    </div>
+                </div>
+            </a>
+            <div class="list-group-item" data-key="mycourses" data-isexpandable="1" data-indent="0" data-showdivider="0" data-type="0" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="home">
+                <div class="m-l-0">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+                        </span>
+                        <span class="media-body">הקורסים שלי</span>
+                    </div>
+                </div>
+            </div>
+            <a class="list-group-item list-group-item-action " href="https://moodle.jct.ac.il/course/view.php?id=55266" data-key="55266" data-isexpandable="1" data-indent="1" data-showdivider="0" data-type="20" data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="mycourses">
+                <div class="m-l-1">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+                        </span>
+                        <span class="media-body ">120711.5782 - סטטיסטיקה למהנדסים - ב - אב</span>
+                    </div>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action " href="https://moodle.jct.ac.il/course/view.php?id=55240" data-key="55240" data-isexpandable="1" data-indent="1" data-showdivider="0" data-type="20" data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="mycourses">
+                <div class="m-l-1">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+                        </span>
+                        <span class="media-body ">157130.5782 - מבוא לרברסינג  - ב - אב</span>
+                    </div>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action " href="https://moodle.jct.ac.il/course/view.php?id=55239" data-key="55239" data-isexpandable="1" data-indent="1" data-showdivider="0" data-type="20" data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="mycourses">
+                <div class="m-l-1">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+                        </span>
+                        <span class="media-body ">150101.5782 - אוטומטים ושפות פורמליות - ב - אב</span>
+                    </div>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action active" href="https://moodle.jct.ac.il/course/view.php?id=55232" data-key="55232" data-isexpandable="1" data-indent="1" data-showdivider="0" data-type="20" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="1" data-hidden="0" data-preceedwithhr="0" data-parent-key="mycourses">
+                <div class="m-l-1">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+                        </span>
+                        <span class="media-body font-weight-bold">153105.5782 - תכנות פונקציונלית ולוגית - ב - אב</span>
+                    </div>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action " href="https://moodle.jct.ac.il/course/view.php?id=55228" data-key="55228" data-isexpandable="1" data-indent="1" data-showdivider="0" data-type="20" data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="mycourses">
+                <div class="m-l-1">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+                        </span>
+                        <span class="media-body ">120501.5782 - משוואות דפרנציאליות - ב - אב</span>
+                    </div>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action " href="https://moodle.jct.ac.il/course/view.php?id=55227" data-key="55227" data-isexpandable="1" data-indent="1" data-showdivider="0" data-type="20" data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="mycourses">
+                <div class="m-l-1">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+                        </span>
+                        <span class="media-body ">151055.5782 - מיני פרויקט במבוא להנדסת תוכנה - ב - אב</span>
+                    </div>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action " href="https://moodle.jct.ac.il/course/view.php?id=53300" data-key="53300" data-isexpandable="1" data-indent="1" data-showdivider="0" data-type="20" data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="mycourses">
+                <div class="m-l-1">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+                        </span>
+                        <span class="media-body ">120304.5782 - לוגיקה מתמטית - א - אב</span>
+                    </div>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action " href="https://moodle.jct.ac.il/course/view.php?id=52591" data-key="52591" data-isexpandable="1" data-indent="1" data-showdivider="0" data-type="20" data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="mycourses">
+                <div class="m-l-1">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+                        </span>
+                        <span class="media-body ">151050.5782 - מבוא להנדסת תוכנה - א - אב</span>
+                    </div>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action " href="https://moodle.jct.ac.il/course/view.php?id=52632" data-key="52632" data-isexpandable="1" data-indent="1" data-showdivider="0" data-type="20" data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="mycourses">
+                <div class="m-l-1">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+                        </span>
+                        <span class="media-body ">157127.5782 - רשתות מחשבים בגישה מחקרית  - א - אב</span>
+                    </div>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action " href="https://moodle.jct.ac.il/course/view.php?id=52083" data-key="52083" data-isexpandable="1" data-indent="1" data-showdivider="0" data-type="20" data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="mycourses">
+                <div class="m-l-1">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"  ></i>
+                        </span>
+                        <span class="media-body ">120701.5782 - הסתברות - אלול - אב</span>
+                    </div>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action " href="https://moodle.jct.ac.il/my/?myoverviewtab=courses" data-key="courseindexpage" data-isexpandable="0" data-indent="1" data-showdivider="0" data-type="60" data-nodetype="0" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="mycourses">
+                <div class="m-l-1">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-fw fa-fw " aria-hidden="true"  ></i>
+                        </span>
+                        <span class="media-body ">אפשרויות נוספות...</span>
+                    </div>
+                </div>
+            </a>
+        </nav>
+    </div>
+</div>
+
+<footer id="page-footer" class="py-3 bg-dark text-light">
+    <div class="container">
+        <div id="course-footer"></div>
+
+
+        <div class="logininfo">את/ה מחובר/ת כ: <a href="https://moodle.jct.ac.il/user/profile.php?id=28738" title="תצוגת מאפיינים">אריה שבסון</a> (<a href="https://moodle.jct.ac.il/login/logout.php?sesskey=VOiqzQBxrc">התנתקות</a>)</div>
+        <div class="tool_usertours-resettourcontainer"></div>
+        <div class="homelink"><a href="https://moodle.jct.ac.il/">ראשי</a></div>
+        <nav class="nav navbar-nav d-md-none">
+                <ul class="list-unstyled pt-3">
+                                    <li><a href="https://moodle.jct.ac.il/course/view.php?id=47385&amp;section=0" title="המדריך">המדריך</a></li>
+                                <li>
+                                    <ul class="list-unstyled ml-3">
+                                                        <li><a href="https://moodle.jct.ac.il/course/view.php?id=47385&amp;section=0" title="מדריך למרצים">מדריך למרצים</a></li>
+                                                        <li><a href="https://moodle.jct.ac.il/mod/hvp/view.php?id=390278" title="מדריך לסטודנטים">מדריך לסטודנטים</a></li>
+                                    </ul>
+                                </li>
+                                    <li><a href="https://www.jct.ac.il/" title="אתרי המרכז האקדמי">אתרי המרכז האקדמי</a></li>
+                                <li>
+                                    <ul class="list-unstyled ml-3">
+                                                        <li><a href="http://it-support.jct.ac.il" target="_blank" title=" אתר התמיכה"> אתר התמיכה</a></li>
+                                                        <li><a href="https://levnet.jct.ac.il" target="_blank" title=" לב נט"> לב נט</a></li>
+                                                        <li><a href="https://www.jct.ac.il/סטודנטים/ספריה/" target="_blank" title=" אתר הספריה"> אתר הספריה</a></li>
+                                                        <li><a href="https://midrash.jct.ac.il/" target="_blank" title=" אתר בית המדרש"> אתר בית המדרש</a></li>
+                                    </ul>
+                                </li>
+                                    <li><a href="http://moodle.com/" title="קישורים שימושיים">קישורים שימושיים</a></li>
+                                <li>
+                                    <ul class="list-unstyled ml-3">
+                                                        <li><a href="https://student-work.jct.ac.il/login" target="_blank" title="מערכת דיווח לסטודנטים">מערכת דיווח לסטודנטים</a></li>
+                                                        <li><a href="https://lev.jct.ac.il/" target="_blank" title=" התחברות מרחוק"> התחברות מרחוק</a></li>
+                                                        <li><a href="https://it-support.jct.ac.il/remote-connect-full-guide/" target="_blank" title=" מדריך להתחברות מרחוק"> מדריך להתחברות מרחוק</a></li>
+                                                        <li><a href="https://it-support.jct.ac.il/category/software-downloads/" target="_blank" title=" מדריך להורדת תוכנות לימוד"> מדריך להורדת תוכנות לימוד</a></li>
+                                    </ul>
+                                </li>
+                                    <li>דיווח תקלות</li>
+                                <li>
+                                    <ul class="list-unstyled ml-3">
+                                                        <li><a href="https://levnet.jct.ac.il/Login/ReportProblem.aspx" target="_blank" title=" תקלות מחשוב"> תקלות מחשוב</a></li>
+                                                        <li><a href="http://moked.jct.ac.il/details/wosimple.aspx" target="_blank" title=" תקלות אחזקה"> תקלות אחזקה</a></li>
+                                                        <li><a href="https://forms.gle/g8x8T58PXSf1obWcA" target="_blank" title=" Streamitup"> Streamitup</a></li>
+                                    </ul>
+                                </li>
+                                    <li><a href="#" title="שפת ממשק">עברית ‎(he)‎</a></li>
+                                <li>
+                                    <ul class="list-unstyled ml-3">
+                                                        <li><a href="https://moodle.jct.ac.il/course/view.php?id=55232&amp;lang=he" title="עברית ‎(he)‎">עברית ‎(he)‎</a></li>
+                                                        <li><a href="https://moodle.jct.ac.il/course/view.php?id=55232&amp;lang=en" title="English ‎(en)‎">English ‎(en)‎</a></li>
+                                    </ul>
+                                </li>
+                </ul>
+        </nav>
+        <div class="tool_dataprivacy"><a href="https://moodle.jct.ac.il/admin/tool/dataprivacy/summary.php">מדיניות שמירת מידע ופרטיות</a></div><a href="https://download.moodle.org/mobile?version=2018051715.06&amp;lang=he&amp;iosappid=633359593&amp;androidappid=com.moodle.moodlemobile">הורדת היישומון Moodle mobile</a>
+        <script type="text/javascript">
+//<![CDATA[
+var require = {
+    baseUrl : 'https://moodle.jct.ac.il/lib/requirejs.php/1653300962/',
+    // We only support AMD modules with an explicit define() statement.
+    enforceDefine: true,
+    skipDataMain: true,
+    waitSeconds : 0,
+
+    paths: {
+        jquery: 'https://moodle.jct.ac.il/lib/javascript.php/1653300962/lib/jquery/jquery-3.2.1.min',
+        jqueryui: 'https://moodle.jct.ac.il/lib/javascript.php/1653300962/lib/jquery/ui-1.12.1/jquery-ui.min',
+        jqueryprivate: 'https://moodle.jct.ac.il/lib/javascript.php/1653300962/lib/requirejs/jquery-private'
+    },
+
+    // Custom jquery config map.
+    map: {
+      // '*' means all modules will get 'jqueryprivate'
+      // for their 'jquery' dependency.
+      '*': { jquery: 'jqueryprivate' },
+      // Stub module for 'process'. This is a workaround for a bug in MathJax (see MDL-60458).
+      '*': { process: 'core/first' },
+
+      // 'jquery-private' wants the real jQuery module
+      // though. If this line was not here, there would
+      // be an unresolvable cyclic dependency.
+      jqueryprivate: { jquery: 'jquery' }
+    }
+};
+
+//]]>
+</script>
+<script type="text/javascript" src="https://moodle.jct.ac.il/lib/javascript.php/1653300962/lib/requirejs/require.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+M.util.js_pending("core/first");require(['core/first'], function() {
+;
+require(["media_videojs/loader"], function(loader) {
+    loader.setUp(function(videojs) {
+        videojs.options.flash.swf = "https://moodle.jct.ac.il/media/player/videojs/videojs/video-js.swf";
+
+    });
+});;
+
+require(['jquery'], function($) {
+    $('#single_select628ba2a3de6fe3').change(function() {
+        var ignore = $(this).find(':selected').attr('data-ignore');
+        if (typeof ignore === typeof undefined) {
+            $('#single_select_f628ba2a3de6fe2').submit();
+        }
+    });
+});
+;
+M.util.js_pending('core/search-input');
+require(['core/search-input'], function(amd) {
+    amd.init("628ba2a3dff1b");
+    M.util.js_complete('core/search-input');
+});;
+
+require(['jquery', 'message_popup/message_popover_controller'], function($, controller) {
+    var container = $('#nav-message-popover-container');
+    var controller = new controller(container);
+    controller.registerEventListeners();
+    controller.registerListNavigationEventListeners();
+});
+;
+
+require(['jquery', 'message_popup/notification_popover_controller'], function($, controller) {
+    var container = $('#nav-notification-popover-container');
+    var controller = new controller(container);
+    controller.registerEventListeners();
+    controller.registerListNavigationEventListeners();
+});
+;
+
+require(['jquery'], function($) {
+    $('#single_select628ba2a3de6fe20').change(function() {
+        var ignore = $(this).find(':selected').attr('data-ignore');
+        if (typeof ignore === typeof undefined) {
+            $('#single_select_f628ba2a3de6fe19').submit();
+        }
+    });
+});
+;
+
+M.util.js_pending('theme_boost/loader');
+require(['theme_boost/loader'], function() {
+  M.util.js_complete('theme_boost/loader');
+});
+M.util.js_pending('theme_boost/drawer');
+require(['theme_boost/drawer'], function(mod) {
+    mod.init();
+  M.util.js_complete('theme_boost/drawer');
+});
+;
+M.util.js_pending('format_grid/tooltip');
+require(['format_grid/tooltip'], function(amd) {
+    amd.init();
+    M.util.js_complete('format_grid/tooltip');
+});;
+M.util.js_pending('core/notification');
+require(['core/notification'], function(amd) {
+    amd.init(905332, []);
+    M.util.js_complete('core/notification');
+});;
+M.util.js_pending('core/log');
+require(['core/log'], function(amd) {
+    amd.setConfig({"level":"warn"});
+    M.util.js_complete('core/log');
+});M.util.js_complete("core/first");
+});
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+M.yui.add_module({"format_grid":{"name":"format_grid","fullpath":"https:\/\/moodle.jct.ac.il\/lib\/javascript.php\/1653300962\/course\/format\/grid\/module.js","requires":[]}});
+
+//]]>
+</script>
+<script type="text/javascript" src="https://moodle.jct.ac.il/lib/javascript.php/1653300962/course/format/grid/format.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+M.str = {"moodle":{"lastmodified":"\u05e9\u05d9\u05e0\u05d5\u05d9 \u05d0\u05d7\u05e8\u05d5\u05df","name":"\u05e9\u05dd","error":"\u05d8\u05e2\u05d5\u05ea","info":"\u05de\u05d9\u05d3\u05e2","yes":"\u05db\u05df","no":"\u05dc\u05d0","ok":"\u05d0\u05d9\u05e9\u05d5\u05e8","cancel":"\u05d1\u05d9\u05d8\u05d5\u05dc","confirm":"\u05d0\u05d9\u05e9\u05d5\u05e8","areyousure":"\u05d4\u05d0\u05dd \u05d0\u05ea\/\u05d4 \u05d1\u05d8\u05d5\u05d7\/\u05d4?","closebuttontitle":"\u05e1\u05d2\u05d9\u05e8\u05d4","unknownerror":"\u05e9\u05d2\u05d9\u05d0\u05d4 \u05dc\u05d0 \u05d9\u05d3\u05d5\u05e2\u05d4"},"repository":{"type":"\u05e1\u05d5\u05d2","size":"\u05d2\u05d5\u05d3\u05dc","invalidjson":"\u05ea\u05e7\u05dc\u05ea \u05ea\u05e7\u05e9\u05d5\u05e8\u05ea. \u05d0\u05e0\u05d0 \u05d4\u05ea\u05d7\u05d1\u05e8\u05d5 \u05e9\u05d5\u05d1 \u05dc\u05de\u05e2\u05e8\u05db\u05ea.","nofilesattached":"\u05dc\u05d0 \u05e0\u05d1\u05d7\u05e8\u05d5 \u05e7\u05d1\u05e6\u05d9\u05dd","filepicker":"\u05d1\u05d7\u05d9\u05e8\u05ea \u05e7\u05d5\u05d1\u05e5","logout":"\u05d4\u05ea\u05e0\u05ea\u05e7\u05d5\u05ea","nofilesavailable":"\u05de\u05d0\u05d2\u05e8 \u05d4\u05e7\u05d1\u05e6\u05d9\u05dd \u05e8\u05d9\u05e7","norepositoriesavailable":"\u05de\u05e6\u05d8\u05e2\u05e8\u05d9\u05dd, \u05d0\u05e3 \u05d0\u05d7\u05d3 \u05de\u05d4\u05de\u05d0\u05d2\u05e8\u05d9\u05dd \u05d4\u05e0\u05d5\u05db\u05d7\u05d9\u05d9\u05dd \u05e9\u05dc\u05da \u05d9\u05db\u05d5\u05dc \u05dc\u05d4\u05d7\u05d6\u05d9\u05e8 \u05e7\u05d1\u05e6\u05d9\u05dd \u05d1\u05ea\u05d1\u05e0\u05d9\u05ea \u05d4\u05de\u05d1\u05d5\u05e7\u05e9\u05ea","fileexistsdialogheader":"\u05e7\u05d1\u05e6\u05d9\u05dd \u05e7\u05d9\u05d9\u05de\u05d9\u05dd","fileexistsdialog_editor":"\u05e7\u05d5\u05d1\u05e5 \u05d1\u05e2\u05dc \u05e9\u05dd \u05d6\u05d4\u05d4 \u05e6\u05d5\u05e8\u05e3 \u05db\u05d1\u05e8 \u05dc\u05ea\u05d5\u05db\u05df \u05e9\u05d4\u05d9\u05e0\u05da \u05e2\u05d5\u05de\u05d3\/\u05ea \u05dc\u05e2\u05e8\u05d5\u05da.","fileexistsdialog_filemanager":"\u05e7\u05d5\u05d1\u05e5 \u05d1\u05e2\u05dc \u05e9\u05dd \u05d6\u05d4\u05d4 \u05e7\u05d9\u05d9\u05dd \u05d1\u05de\u05e2\u05e8\u05db\u05ea","renameto":"\u05e9\u05d9\u05e0\u05d5\u05d9 \u05e9\u05dd \u05dc: \"{$a}\"","referencesexist":"{$a} \u05e7\u05d1\u05e6\u05d9\u05dd \u05de\u05e7\u05d5\u05e9\u05e8\u05d9\u05dd \u05dc\u05e7\u05d5\u05d1\u05e5 \u05d6\u05d4, \u05d4\u05de\u05e9\u05de\u05e9 \u05db\u05de\u05e7\u05d5\u05e8 \u05e9\u05dc\u05d4\u05dd","select":"\u05d1\u05d7\u05d9\u05e8\u05d4"},"admin":{"confirmdeletecomments":"\u05d4\u05d9\u05e0\u05da \u05e2\u05d5\u05de\u05d3 \u05dc\u05de\u05d7\u05d5\u05e7 \u05d4\u05e2\u05e8\u05d5\u05ea, \u05d4\u05d0\u05dd \u05d0\u05ea\u05d4 \u05d1\u05d8\u05d5\u05d7?","confirmation":"\u05d0\u05d9\u05e9\u05d5\u05e8"}};
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+(function() {Y.use("moodle-filter_glossary-autolinker",function() {M.filter_glossary.init_filter_autolinking({"courseid":0});
+});
+Y.use("moodle-filter_mathjaxloader-loader",function() {M.filter_mathjaxloader.configure({"mathjaxconfig":"\nMathJax.Hub.Config({\n    config: [\"Accessible.js\", \"Safe.js\"],\n    errorSettings: { message: [\"!\"] },\n    skipStartupTypeset: true,\n    messageStyle: \"none\"\n});\n","lang":"he"});
+});
+M.util.help_popups.setup(Y);
+ M.util.js_pending('random628ba2a3de6fe21'); Y.use('format_grid', function(Y) { M.format_grid.init(Y, false, null, 14, "[1,2,1,1,2,2,1,2,1,2,2,1,1,2,2]");  M.util.js_complete('random628ba2a3de6fe21'); });
+Y.on('domready', function() { Y.use("moodle-format_grid-gridkeys",function() {M.format_grid.gridkeys.init({"rtl":true});
+}); });
+ M.util.js_pending('random628ba2a3de6fe22'); Y.on('domready', function() { M.util.js_complete("init");  M.util.js_complete('random628ba2a3de6fe22'); });
+})();
+//]]>
+</script>
+
+    </div>
+</footer>
+</body>
+</html>

@@ -10,7 +10,8 @@
 		"Other"
 	],
 	"activationEvents": [
-        "onCommand:submit-for-jct.helloWorld"
+        "onCommand:submit-for-jct.helloWorld",
+		"onView:submit-for-jct-sidebar"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -19,7 +20,27 @@
 				"command": "submit-for-jct.helloWorld",
 				"title": "Hello World"
 			}
-		]
+		],
+		"viewsContainers": {
+			"activitybar": [
+			  {
+				"id": "submit-for-jct-sidebar-view",
+				"title": "Submit",
+				"icon": "media/lev.svg"
+			  }
+			]
+		  },
+		  "views": {
+			"submit-for-jct-sidebar-view": [
+			  {
+				"type": "webview",
+				"id": "submit-for-jct-sidebar",
+				"name": "Submit",
+				"icon": "media/lev.svg",
+				"contextualTitle": "Submit"
+			  }
+			]
+		  }
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
