@@ -96,6 +96,17 @@ def main():
                     print(f"Grade: {grade}/100")
                     if not evaluation == '':
                         print(f"Evaluation:\n{evaluation}")
+                case "cg":
+                    assert current_assignment is not None, "No assignment selected"
+                    try:
+                        grade, evaluation = current_assignment.get_current_grade()
+                    except Exception as e:
+                        print("ERROR")
+                        print(e)
+                        continue
+                    print(f"Grade: {grade}/100")
+                    if not evaluation == '':
+                        print(f"Evaluation:\n{evaluation}")
                 case "u":
                     assert current_assignment is not None, "No assignment selected"
                     path = input("enter path to file: ")

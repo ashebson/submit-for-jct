@@ -10,6 +10,7 @@ import os
 MOODLE_UPLOAD_URL_FORMAT = "https://moodle.jct.ac.il/mod/vpl/forms/edit.json.php?id={}&userid={}&action=save"
 MOODLE_EVAL_URL_FORMAT = "https://moodle.jct.ac.il/mod/vpl/forms/edit.json.php?id={}&userid={}&action=evaluate"
 MOODLE_RETRIEVE_URL_FORMAT = "https://moodle.jct.ac.il/mod/vpl/forms/edit.json.php?id={}&userid={}&action=retrieve"
+MOODLE_LOAD_URL_FORMAT = "https://moodle.jct.ac.il/mod/vpl/forms/edit.json.php?id={}&userid={}&action=load"
 BURP_PROXY = {"http": "http://127.0.0.1:8080",
               "https": "http://127.0.0.1:8080"}
 
@@ -68,6 +69,30 @@ class exec_assignment:
             if evaluation == '':
                 raise Exception("Grading Failed")
             if 'Incorrect' in response['response']['evaluation']:
+                grade = 0
+            else:
+                grade = 100
+        else:
+            grade = parse.parse(GRADE_FORMAT, grade)[0]
+        grade = float(grade)
+        return grade, evaluation
+
+    def get_current_grade(self):
+        url = MOODLE_LOAD_URL_FORMAT.format(self.id, communication_data.userid)
+        header = {'Content-Type': 'application/json; charset=UTF-8'}
+        response = requests.post(url, headers=header,
+                                 cookies=communication_data.session_cookie,
+                                 verify=False, data="{}")  # ,proxies=BURP_PROXY)
+        response_json = response.json()
+        try:
+            grade = response_json['response']['compilationexecution']['grade']
+            evaluation = response_json['response']['compilationexecution']['evaluation']
+        except KeyError:
+            raise Exception("Grading Failed")
+        if grade == '':
+            if evaluation == '':
+                raise Exception("Grading Failed")
+            if 'Incorrect' in evaluation:
                 grade = 0
             else:
                 grade = 100

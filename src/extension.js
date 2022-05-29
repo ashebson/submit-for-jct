@@ -10,7 +10,7 @@ var SidebarProvider_1 = require("./SidebarProvider");
 function activate(context) {
     var sidebarProvider = new SidebarProvider_1.SidebarProvider(context.extensionUri);
     context.subscriptions.push(vscode.window.registerWebviewViewProvider("submit-for-jct-sidebar", sidebarProvider));
-    var disposable = vscode.commands.registerCommand('submit-for-jct.helloWorld', function () {
+    var disposable = vscode.commands.registerCommand('submit-for-jct.evaluate', function () {
         vscode.window.showInformationMessage('Hello World from Submit For JCT!');
     });
     context.subscriptions.push(disposable);

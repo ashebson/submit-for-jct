@@ -11,6 +11,7 @@ STATIC_ASSIGNMENT_FORMAT = '<a class="" onclick="" href="https://moodle.jct.ac.i
 COURSE_FORMAT = '<div class="coursebox clearfix {}" data-courseid="{}" data-type="1"><div class="info"><h3 class="coursename"><a class="" href="https://moodle.jct.ac.il/course/view.php?id={}">{} - {}</a></h3><div class="moreinfo"></div></div>'
 EXEC_ASSIGNMENT_FORMAT = '<a class="" onclick="" href="https://moodle.jct.ac.il/mod/vpl/view.php?id={}"><img src="{}" class="iconlarge activityicon" alt="" role="presentation" aria-hidden="true" /><span class="instancename">{}<span class="accesshide " > Virtual programming lab</span></span></a>'
 
+
 def get_courses():
     courses_page = requests.get(
         MOODLE_COURSES_URL,
@@ -43,7 +44,7 @@ def get_executable_assignments(select_course):
         MOODLE_ASSIGNMENTS_FORMAT.format(course_id),
         cookies=communication_data.session_cookie,
         verify=False).content.decode()
-    open('assignments.html','w').write(assignments_page)
+    open('assignments.html', 'w').write(assignments_page)
     unformatted_assignments = parse.findall(
         EXEC_ASSIGNMENT_FORMAT, assignments_page)
     formatted_assignments = []

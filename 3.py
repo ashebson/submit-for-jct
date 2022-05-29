@@ -23,5 +23,3 @@ def reverse_num_2(num):
     return int(''.join(list(reversed(digits))))
 
 
-if __name__ == "__main__":
-    main()

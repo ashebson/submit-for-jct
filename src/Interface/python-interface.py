@@ -64,6 +64,12 @@ def main():
         grade_assignment = False
 
     try:
+        current_grade_assignment_tag_index = argv.index("-cg")
+        current_grade_assignment = True
+    except ValueError:
+        current_grade_assignment = False
+
+    try:
         file_path_tag_index = argv.index("-f")
         file_path_index = file_path_tag_index + 1
         file_path = argv[file_path_index]
@@ -88,7 +94,7 @@ def main():
         assert assignment is not None
         assert file_path is not None
         grade, evaluation = assignment.grade(file_path)
-        evaluation = {"grade": grade, "evaluation":evaluation}
+        evaluation = {"grade": grade, "evaluation": evaluation}
         print(json.dumps(evaluation))
 
     if upload_assignment:
@@ -96,6 +102,16 @@ def main():
         assert assignment is not None
         assert file_path is not None
         assignment.upload(file_path)
+
+    if current_grade_assignment:
+        assert course is not None
+        assert assignment is not None
+        try:
+            grade, evaluation = assignment.get_current_grade()
+        except Exception:
+            grade, evaluation = "", ""
+        evaluation = {"grade": grade, "evaluation": evaluation}
+        print(json.dumps(evaluation))
 
 
 if __name__ == "__main__":

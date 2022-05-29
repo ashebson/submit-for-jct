@@ -1,66 +1,78 @@
 {
   "name": "submit-for-jct",
-	"displayName": "Submit For JCT",
-	"description": "",
-	"version": "0.0.1",
-	"engines": {
-		"vscode": "^1.67.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"activationEvents": [
-        "onCommand:submit-for-jct.helloWorld",
-		"onView:submit-for-jct-sidebar"
-	],
-	"main": "./out/extension.js",
-	"contributes": {
-		"commands": [
-			{
-				"command": "submit-for-jct.helloWorld",
-				"title": "Hello World"
-			}
-		],
-		"viewsContainers": {
-			"activitybar": [
-			  {
-				"id": "submit-for-jct-sidebar-view",
-				"title": "Submit",
-				"icon": "media/lev.svg"
-			  }
-			]
-		  },
-		  "views": {
-			"submit-for-jct-sidebar-view": [
-			  {
-				"type": "webview",
-				"id": "submit-for-jct-sidebar",
-				"name": "Submit",
-				"icon": "media/lev.svg",
-				"contextualTitle": "Submit"
-			  }
-			]
-		  }
-	},
-	"scripts": {
-		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./",
-		"pretest": "npm run compile && npm run lint",
-		"lint": "eslint src --ext ts",
-		"test": "node ./out/test/runTest.js"
-	},
-	"devDependencies": {
-		"@types/vscode": "^1.67.0",
-		"@types/glob": "^7.2.0",
-		"@types/mocha": "^9.1.0",
-		"@types/node": "14.x",
-		"@typescript-eslint/eslint-plugin": "^5.16.0",
-		"@typescript-eslint/parser": "^5.16.0",
-		"eslint": "^8.11.0",
-		"glob": "^7.2.0",
-		"mocha": "^9.2.2",
-		"typescript": "^4.5.5",
-		"@vscode/test-electron": "^2.1.3"
-	}
+  "displayName": "Submit For JCT",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.67.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:submit-for-jct.evaluate",
+    "onView:submit-for-jct-sidebar"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "submit-for-jct.evaluate",
+        "title": "Grade",
+        "icon":"$(debug-console-evaluation-prompt)"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "submit-for-jct.evaluate",
+          "group":"navigation"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "submit-for-jct-sidebar-view",
+          "title": "Submit",
+          "icon": "media/lev.svg"
+        }
+      ]
+    },
+    "views": {
+      "submit-for-jct-sidebar-view": [
+        {
+          "type": "webview",
+          "id": "submit-for-jct-sidebar",
+          "name": "Submit",
+          "icon": "media/lev.svg",
+          "contextualTitle": "Submit"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.2.0",
+    "@types/mocha": "^9.1.0",
+    "@types/node": "14.x",
+    "@types/vscode": "^1.67.0",
+    "@typescript-eslint/eslint-plugin": "^5.16.0",
+    "@typescript-eslint/parser": "^5.16.0",
+    "@vscode/test-electron": "^2.1.3",
+    "eslint": "^8.11.0",
+    "glob": "^7.2.0",
+    "mocha": "^9.2.2",
+    "typescript": "^4.5.5"
+  },
+  "settings":{
+    "showIcon":true
+  }
 }

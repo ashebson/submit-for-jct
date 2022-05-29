@@ -1,10 +1,13 @@
 import * as vscode from "vscode";
-import { getNonce } from "./getNonce";
-import { getSidebar } from "./getSidebar";
+import { WindowGenerator } from "./WindowGenerator";
+import { getAssignments, getCourses} from "./Interface/typescript-interface";
+import { Func } from "mocha";
 
 export class SidebarProvider implements vscode.WebviewViewProvider {
   _view?: vscode.WebviewView;
   _doc?: vscode.TextDocument;
+
+  public body: String = WindowGenerator.getCoursesBody();
 
   constructor(private readonly _extensionUri: vscode.Uri) {}
 
@@ -14,7 +17,6 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
     webviewView.webview.options = {
       // Allow scripts in the webview
       enableScripts: true,
-
       localResourceRoots: [this._extensionUri],
     };
 
@@ -36,12 +38,43 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
           vscode.window.showErrorMessage(data.value);
           break;
         }
+        case "onCourseSelection":{
+          if (!data.value) {
+            return;
+          }
+          this.body = WindowGenerator.getAssignmentsBody(data.value);
+          WindowGenerator.currentCourse = data.value;
+          WindowGenerator.currentAssignment = null;
+          webviewView.webview.html = this._getHtmlForWebview(webviewView.webview);
+          break;
+        }
+        case "onAssignmentSelection":{
+          if (!data.value) {
+            return;
+          }
+          this.body = WindowGenerator.getAssignmentBody(data.value.assignment, data.value.course);
+          WindowGenerator.currentCourse = data.value.course;
+          WindowGenerator.currentAssignment = data.value.assignment;
+          webviewView.webview.html = this._getHtmlForWebview(webviewView.webview);
+          break;
+        }
+        case "onBackToMain":{
+          this.body = WindowGenerator.getCoursesBody();
+          WindowGenerator.currentAssignment = null;
+          WindowGenerator.currentCourse = null;
+          webviewView.webview.html = this._getHtmlForWebview(webviewView.webview);
+          break;
+        }
       }
     });
   }
 
   public revive(panel: vscode.WebviewView) {
     this._view = panel;
+  }
+
+  public refresh(){
+    this._view!.webview.html = this._getHtmlForWebview(this._view!.webview);
   }
 
   private _getHtmlForWebview(webview: vscode.Webview) {
@@ -57,28 +90,19 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
     const styleVSCodeUri = webview.asWebviewUri(
       vscode.Uri.joinPath(this._extensionUri, "media", "vscode.css")
     );
-
-    // Use a nonce to only allow a specific script to be run.
-    const nonce = getNonce();
-
+      //${WindowGenerator.getAssignmentBody(get_assignments(get_courses()[3])[7])}
     return `<!DOCTYPE html>
 			<html lang="en">
 			<head>
 				<meta charset="UTF-8">
-				<!--
-					Use a content security policy to only allow loading images from https or from our extension directory,
-					and only allow scripts that have a specific nonce.
-        -->
-        <meta http-equiv="Content-Security-Policy" content="img-src https: data:; style-src 'unsafe-inline' ${
-      webview.cspSource
-    }; script-src 'nonce-${nonce}';">
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
 				<link href="${styleResetUri}" rel="stylesheet">
 				<link href="${styleVSCodeUri}" rel="stylesheet">
         <link href="${styleMainUri}" rel="stylesheet">
-        <script nonce="${nonce}" src="${scriptUri}"></script>
 			</head>
-      ${getSidebar()}
+      <body>
+      ${this.body}
+      </body>
 			</html>`;
   }
 }
