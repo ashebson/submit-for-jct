@@ -1,6 +1,6 @@
 # Moodle-Vscode-Extention
 Awesome VSCODE extention to enable moodle assignment submition from within the IDE.<br>
-Inorder to run project create a setup.json with the following content
+Inorder to run project create a `setup.json` with the following content
 ```
 {
   "username" : "your_username",
@@ -8,4 +8,4 @@ Inorder to run project create a setup.json with the following content
   "userid" : "your_userid"
 }
  ```
- after creating setup.json run main.py
+ after creating `setup.json` run `main.py`
